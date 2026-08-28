@@ -1,0 +1,13 @@
+#ifndef NOTICETYPE_H
+#define NOTICETYPE_H
+
+enum NoticeType {
+	OPEN, 
+	CLOSE, 
+	POWER_ALERT, 
+	CAPACITY_ALERT, 
+	EVACUATE, 
+	NETWORK_ERROR
+};
+
+#endif
