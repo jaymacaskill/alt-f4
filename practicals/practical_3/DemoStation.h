@@ -1,17 +1,53 @@
+// Dian le Roux (25147065)
+// Marko de Swardt (24658562)
+// Jay Macaskill (25198387)
+
+// COS 214 (Software Modelling) Practical 3
+// Last Modified: 28 August 2026
+
+// DemoStation.h
+
 #ifndef DEMOSTATION_H
 #define DEMOSTATION_H
 
-class DemoStation : EventUnit {
+#include "EventUnit.h"
+#include "Notice.h"
 
+#include <iostream>
 
-public:
-	DemoStation(string& name, int capacity);
+using namespace std;
 
-	void open();
+class EventUnit;
 
-	void close();
+/**
+ * @brief A demo station for vendors, inside the vendor hall
+ * 
+ * Closes entirely during EVACUATE, POWER_ALERT and CLOSE
+ * Opens during OPEN
+ */
+class DemoStation : public EventUnit
+{
+	public:
+		/**
+		 * @brief Constructs a demo station object with fixed customer capacity
+		 * (Forwards to EventUnit for construction)
+		 * @param name Display name for the demo station
+		 * @param capacity Maximum number of customers served at once
+		 */
+		DemoStation(const string& name, int capacity);
 
-	void update(Notice& notice);
+		/// @copydoc EventComponent::open
+		void open() override;
+
+		/// @copydoc EventComponent::close
+		void close() override;
+
+		/**
+		 * @brief Closes entirely during EVACUATE, POWER_ALERT and CLOSE
+		 * Opens during OPEN
+		 * @param notice The notice received
+		 */
+		void update(Notice& notice) override;
 };
 
-#endif
+#endif // DEMOSTATION_H

@@ -1,19 +1,68 @@
+// Dian le Roux (25147065)
+// Marko de Swardt (24658562)
+// Jay Macaskill (25198387)
+
+// COS 214 (Software Modelling) Practical 3
+// Last Modified: 28 August 2026
+
+// Subject.h
+
 #ifndef SUBJECT_H
 #define SUBJECT_H
 
-class Subject {
+#include "Notice.h"
+#include "Observer.h"
 
-protected:
-	vector<Observer*> observers;
+#include <iostream>
+#include <vector>
 
-public:
-	virtual void ~Subject() = 0;
+using namespace std;
 
-	virtual void attach(Observer* observer) = 0;
+/**
+ * @brief Maintains a list of registered observers and broadcasts notices
+ * Subject is the Subject role in the GoF Observer pattern. This Subject stores
+ * non-owning pointers: Observers must remain alive while registered and are responsible
+ * for detaching themselves before own destruction
+ */
+class Subject
+{
+	public:
+		/**
+		 * @brief Virtual destructor
+		 */
+		virtual ~Subject();
 
-	virtual void detach(Observer* observer) = 0;
+		/**
+		 * @brief Registers an observer for future notifications
+		 * If the observer is already registered, nothing should happen to avoid duplicate notifications
+		 * 
+		 * @param observer Observer to registered. May not be nullptr (perform null check)
+		 */
+		virtual void attach(Observer* observer);
 
-	virtual void notify(Notice& notice) = 0;
+		/**
+		 * @brief Removes an observer from the notification list
+		 * If the observer is not registered, this call can be exited instead of making an error
+		 * 
+		 * @param observer Observer to remove (if nullptr, exit the function safely)
+		 */
+		virtual void detach(Observer* observer);
+
+		/**
+		 * @brief Broadcasts a notice to every currently registered observer
+		 * 
+		 * Iterates the observer list and calls update(notice) on each one. Order of notification
+		 * follows registration order
+		 * 
+		 * @param notice The notice to broadcast
+		 */
+		virtual void notify(Notice& notice);
+
+	protected:
+		/**
+		 * @brief Non-owning pointers to currently registered observers
+		 */
+		vector<Observer*> observers;
 };
 
-#endif
+#endif // SUBJECT_H

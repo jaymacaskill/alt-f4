@@ -1,6 +1,27 @@
-#include "ControlDesk.h"
+// Dian le Roux (25147065)
+// Marko de Swardt (24658562)
+// Jay Macaskill (25198387)
 
-void ControlDesk::issueNotice(Notice& notice) {
+// COS 214 (Software Modelling) Practical 3
+// Last Modified: 28 August 2026
+
+// ControlDesk.cpp
+
+#ifndef CONTROLDESK_CPP
+#define CONTROLDESK_CPP
+
+#include "ControlDesk.h"
+#include "Notice.h"
+#include "Subject.h"
+
+#include <iostream>
+
+using namespace std;
+
+void ControlDesk::issueNotice(Notice& notice)
+{
 	// TODO - implement ControlDesk::issueNotice
 	throw "Not yet implemented";
 }
+
+#endif // CONTROLDESK_CPP

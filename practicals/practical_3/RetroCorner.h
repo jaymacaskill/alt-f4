@@ -1,11 +1,33 @@
+// Dian le Roux (25147065)
+// Marko de Swardt (24658562)
+// Jay Macaskill (25198387)
+
+// COS 214 (Software Modelling) Practical 3
+// Last Modified: 28 August 2026
+
+// RetroCorner.h
+
 #ifndef RETROCORNER_H
 #define RETROCORNER_H
 
-class RetroCorner : EventGroup {
+#include "EventGroup.h"
 
+#include <iostream>
 
-public:
-	RetroCorner();
+using namespace std;
+
+class EventGroup;
+
+/**
+ * @brief Retro corner containing the arcade row, inside of the main hall
+ */
+class RetroCorner : public EventGroup
+{
+	public:
+		/**
+		 * @brief Constructs a retro corner by forwarding to EventGroup
+		 */
+		RetroCorner();
 };
 
-#endif
+#endif // RETROCORNER_H

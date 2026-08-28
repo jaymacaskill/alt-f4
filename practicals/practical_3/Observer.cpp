@@ -5,18 +5,18 @@
 // COS 214 (Software Modelling) Practical 3
 // Last Modified: 28 August 2026
 
-// GameFest.cpp
+// Observer.cpp
 
-#ifndef GAMEFEST_CPP
-#define GAMEFEST_CPP
+#ifndef OBSERVER_CPP
+#define OBSERVER_CPP
 
-#include "GameFest.h"
-#include "EventGroup.h"
+#include "Observer.h"
+#include "Notice.h"
 
 #include <iostream>
 
 using namespace std;
 
-GameFest::GameFest() : EventGroup("Game Fest") { }
+Observer::~Observer() { }
 
-#endif // GAMEFEST_CPP
+#endif // OBSERVER_CPP

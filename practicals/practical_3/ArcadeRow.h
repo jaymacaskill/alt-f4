@@ -1,17 +1,54 @@
+// Dian le Roux (25147065)
+// Marko de Swardt (24658562)
+// Jay Macaskill (25198387)
+
+// COS 214 (Software Modelling) Practical 3
+// Last Modified: 28 August 2026
+
+// ArcadeRow.h
+
 #ifndef ARCADEROW_H
 #define ARCADEROW_H
 
-class ArcadeRow : EventUnit {
+#include "EventUnit.h"
+#include "Notice.h"
 
+#include <iostream>
 
-public:
-	ArcadeRow(string& name, int capacity);
+using namespace std;
 
-	void open();
+class EventUnit;
 
-	void close();
+/**
+ * @brief An arcade row with all of the arcade machines, contained in the retro corner.
+ * 
+ * Closes entirely during EVACUATE, POWER_ALERT and CLOSE
+ * Opens during OPEN
+ */
+class ArcadeRow : public EventUnit
+{
+	public:
 
-	void update(Notice& notice);
+		/**
+		 * @brief Constructs an arcade row object with fixed customer capacity
+		 * (Forwards to EventUnit for construction)
+		 * @param name Display name for the arcade row
+		 * @param capacity Maximum number of customers served at once
+		 */
+		ArcadeRow(const string& name, int capacity);
+
+		/// @copydoc EventComponent::open
+		void open() override;
+
+		/// @copydoc EventComponent::close
+		void close() override;
+
+		/**
+		 * @brief Closes entirely during EVACUATE, POWER_ALERT and CLOSE
+		 *  Opens during OPEN
+		 * @param notice The notice received
+		 */
+		void update(Notice& notice) override;
 };
 
-#endif
+#endif // ARCADEROW_H
