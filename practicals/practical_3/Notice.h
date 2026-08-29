@@ -41,7 +41,6 @@ struct Notice
 {
 	NoticeType type; /**< The notice type */
 	string message; /**< The accompanying message for the notice */
-	int value; /**< Any related value, such as for a capacity alert */
 };
 
 #endif // NOTICE_H
