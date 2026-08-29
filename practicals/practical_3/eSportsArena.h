@@ -3,7 +3,7 @@
 // Jay Macaskill (25198387)
 
 // COS 214 (Software Modelling) Practical 3
-// Last Modified: 28 August 2026
+// Last Modified: 29 August 2026
 
 // eSportsArena.h
 
@@ -45,6 +45,7 @@ class eSportsArena : public EventUnit
 		/**
 		 * @brief Closes entirely during EVACUATE, POWER_ALERT, NETWORK_ERROR and CLOSE
 		 * Opens during OPEN
+		 * Relays SECURITY_ANNOUNCEMENT and LOST_PERSON
 		 * @param notice The notice received
 		 */
 		void update(Notice& notice) override;

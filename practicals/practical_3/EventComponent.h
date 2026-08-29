@@ -3,7 +3,7 @@
 // Jay Macaskill (25198387)
 
 // COS 214 (Software Modelling) Practical 3
-// Last Modified: 28 August 2026
+// Last Modified: 29 August 2026
 
 // EventComponent.h
 
@@ -63,6 +63,11 @@ class EventComponent : public Observer
 		 * @brief Update function to be implemented in children classes, since components are observers
 		 */
 		virtual void update(Notice& notice) = 0;
+
+		/**
+		 * @brief Getter for the name of the component
+		 */
+		virtual const string& getName() = 0;
 
 	protected:
 		/**

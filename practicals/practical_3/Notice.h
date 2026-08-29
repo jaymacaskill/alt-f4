@@ -3,7 +3,7 @@
 // Jay Macaskill (25198387)
 
 // COS 214 (Software Modelling) Practical 3
-// Last Modified: 28 August 2026
+// Last Modified: 29 August 2026
 
 // Notice.h
 
@@ -22,9 +22,13 @@ enum NoticeType
 	OPEN, /**< An area or unit should open */
 	CLOSE, /**< An area or unit should close */
 	POWER_ALERT, /**< A power-related safety concern */
-	CAPACITY_ALERT, /**< Capacity has reached a notable threshold */
+	POWER_STABILISED, /** < An alert given to stabilise the power */
 	EVACUATE, /**< The vicinity needs to be evacuated */
-	NETWORK_ERROR /**< Network failure */
+	SECURITY_ANNOUNCEMENT, /**< For any announcements brought forward by security e.g. parked car with windows down*/
+	LOST_PERSON, /**< To make stage announcement for any missing persons */
+	VENDOR_CLOSE, /**< Close the vendor hall */
+	NETWORK_ERROR, /**< Network failure */
+	NETWORK_RESTORED /**< An alert given once network has been restored */
 };
 
 /**

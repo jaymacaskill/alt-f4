@@ -3,7 +3,7 @@
 // Jay Macaskill (25198387)
 
 // COS 214 (Software Modelling) Practical 3
-// Last Modified: 28 August 2026
+// Last Modified: 29 August 2026
 
 // EventUnit.cpp
 
@@ -18,6 +18,13 @@
 
 using namespace std;
 
+EventUnit::~EventUnit() { }
+
+const string& EventUnit::getName()
+{
+	return name;
+}
+
 EventUnit::EventUnit(const string& name, int capacity)
 {
 	this->name = name;
@@ -27,8 +34,9 @@ EventUnit::EventUnit(const string& name, int capacity)
 
 void EventUnit::reportStatus()
 {
-	// TODO - implement EventUnit::reportStatus
-	throw "Not yet implemented";
+	if (this->isOpen)
+	cout << this->name << ": OPEN (" << this->total_capacity << " /" << this->capacity << " capacity)\n";
+	else cout << this->name << ": CLOSED\n";
 }
 
 bool EventUnit::admit()
@@ -44,6 +52,7 @@ void EventUnit::dismiss()
 {
 	if (this->capacity <= 0) { cout << "There is no one here to dismiss.";  return; }
 	total_capacity --;
+	if (this->total_capacity < this->capacity) this->isFull = false;
 }
 
 int EventUnit::getCapacity()

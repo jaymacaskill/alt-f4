@@ -3,7 +3,7 @@
 // Jay Macaskill (25198387)
 
 // COS 214 (Software Modelling) Practical 3
-// Last Modified: 28 August 2026
+// Last Modified: 29 August 2026
 
 // MainStage.h
 
@@ -45,6 +45,7 @@ class MainStage : public EventUnit
 		/**
 		 * @brief Closes entirely during EVACUATE and CLOSE
 		 * Opens during OPEN
+		 * Relays SECURITY_ANNOUNCEMENT, LOST_PERSON, VENDOR_CLOSE
 		 * @param notice The notice received
 		 */
 		void update(Notice& notice) override;

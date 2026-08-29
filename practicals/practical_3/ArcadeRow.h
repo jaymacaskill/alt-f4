@@ -3,7 +3,7 @@
 // Jay Macaskill (25198387)
 
 // COS 214 (Software Modelling) Practical 3
-// Last Modified: 28 August 2026
+// Last Modified: 29 August 2026
 
 // ArcadeRow.h
 
@@ -45,7 +45,8 @@ class ArcadeRow : public EventUnit
 
 		/**
 		 * @brief Closes entirely during EVACUATE, POWER_ALERT and CLOSE
-		 *  Opens during OPEN
+		 * Opens during OPEN
+		 * Informs staff of LOST_PERSON
 		 * @param notice The notice received
 		 */
 		void update(Notice& notice) override;

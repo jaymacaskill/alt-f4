@@ -3,7 +3,7 @@
 // Jay Macaskill (25198387)
 
 // COS 214 (Software Modelling) Practical 3
-// Last Modified: 28 August 2026
+// Last Modified: 29 August 2026
 
 // ArcadeRow.cpp
 
@@ -22,20 +22,59 @@ ArcadeRow::ArcadeRow(const string& name, int capacity) : EventUnit(name, capacit
 
 void ArcadeRow::open()
 {
-	// TODO - implement ArcadeRow::open
-	throw "Not yet implemented";
+	cout << "Good news! " << this->name << " is open.\n";
+	this->isOpen = true;
 }
 
 void ArcadeRow::close()
 {
-	// TODO - implement ArcadeRow::close
-	throw "Not yet implemented";
+	cout << this->name << " is now closed.\n";
+	this->isOpen = false;
 }
 
 void ArcadeRow::update(Notice& notice)
 {
-	// TODO - implement ArcadeRow::update
-	throw "Not yet implemented";
+	switch (notice.type)
+	{
+		case OPEN:
+			this->open();
+			break;
+
+		case CLOSE:
+			if (this->isOpen) this->close();
+			break;
+
+		case EVACUATE:
+			this->isOpen = false;
+			cout << "Emergency evacuation. Please calmly make use of arcade exits.\n";
+			break;
+
+		case POWER_ALERT:
+			cout << "Due to a power alert, the arcade will be closing.\n";
+			this->isOpen = false;
+			break;
+
+		case POWER_STABILISED:
+			cout << "Power has been stabilised and the arcade is open.\n";
+			this->isOpen = true;
+			break;
+
+		case NETWORK_ERROR:
+			break;
+
+		case NETWORK_RESTORED:
+			break;
+
+		case SECURITY_ANNOUNCEMENT:
+			break;
+
+		case LOST_PERSON:
+			cout << "All arcade staff is on the lookout for the missing person.\n";
+			break;
+
+		case VENDOR_CLOSE:
+			break;
+	}
 }
 
 #endif //  ARCADEROW_CPP

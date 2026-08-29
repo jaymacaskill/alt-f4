@@ -3,7 +3,7 @@
 // Jay Macaskill (25198387)
 
 // COS 214 (Software Modelling) Practical 3
-// Last Modified: 28 August 2026
+// Last Modified: 29 August 2026
 
 // Queue.h
 
@@ -43,8 +43,9 @@ class Queue : public EventUnit
 		void close() override;
 
 		/**
-		 * @brief Closes entirely during EVACUATE, CLOSE and CAPACITY_ALERT
+		 * @brief Closes entirely during EVACUATE and CLOSE
 		 * Opens during OPEN
+		 * Relays LOST_PERSON
 		 * @param notice The notice received
 		 */
 		void update(Notice& notice) override;

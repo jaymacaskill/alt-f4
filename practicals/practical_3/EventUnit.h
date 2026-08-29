@@ -3,7 +3,7 @@
 // Jay Macaskill (25198387)
 
 // COS 214 (Software Modelling) Practical 3
-// Last Modified: 28 August 2026
+// Last Modified: 29 August 2026
 
 // EventUnit.h
 
@@ -57,6 +57,9 @@ class EventUnit : public EventComponent
 
 		/// @copydoc EventComponent::close
 		virtual void close() = 0;
+
+		/// @copydoc EventComponent::getName;
+		const string& getName() override;
 
 		/**
 		 * @brief This function removes a customer from the unit and decrements total capacity

@@ -3,7 +3,7 @@
 // Jay Macaskill (25198387)
 
 // COS 214 (Software Modelling) Practical 3
-// Last Modified: 28 August 2026
+// Last Modified: 29 August 2026
 
 // DemoStation.h
 
@@ -43,11 +43,15 @@ class DemoStation : public EventUnit
 		void close() override;
 
 		/**
-		 * @brief Closes entirely during EVACUATE, POWER_ALERT and CLOSE
+		 * @brief Closes entirely during EVACUATE, POWER_ALERT, VENDOR_CLOSE and CLOSE
 		 * Opens during OPEN
+		 * Relays LOST_PERSON
 		 * @param notice The notice received
 		 */
 		void update(Notice& notice) override;
+
+	protected:
+		bool offlineMode = false; /**< Whether demonstrations are offline or not */
 };
 
 #endif // DEMOSTATION_H

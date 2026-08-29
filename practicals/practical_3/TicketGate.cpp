@@ -3,7 +3,7 @@
 // Jay Macaskill (25198387)
 
 // COS 214 (Software Modelling) Practical 3
-// Last Modified: 28 August 2026
+// Last Modified: 29 August 2026
 
 // TicketGate.cpp
 
@@ -22,20 +22,60 @@ TicketGate::TicketGate(const string& name, int capacity) : EventUnit(name, capac
 
 void TicketGate::open()
 {
-	// TODO - implement TicketGate::open
-	throw "Not yet implemented";
+	cout << "Welcome to GameFest! We are so excited to have you here. Please queue in an orderly fashion.\n";
+	this->isOpen = true;
 }
 
 void TicketGate::close()
 {
-	// TODO - implement TicketGate::close
-	throw "Not yet implemented";
+	cout << "The Ticket Gate will be closing now. Thank you for your support.\n";
+	this->isOpen = false;
 }
 
 void TicketGate::update(Notice& notice)
 {
-	// TODO - implement TicketGate::update
-	throw "Not yet implemented";
+	switch(notice.type)
+	{
+		case OPEN:
+			this->open();
+			break;
+
+		case CLOSE:
+			if (this->isOpen) this->close();
+			break;
+
+		case POWER_ALERT:
+			cout << "There has been a power notice, we will be switching to backup scanners, this will not cause any issues.\n";
+			break;
+
+		case POWER_STABILISED:
+			cout << "The power is stabilised and operations will resume as normal.\n";
+			break;
+
+		case EVACUATE:
+			cout << "Please calmly evacuate via the gates due to an emergency underway.\n";
+			this->isOpen = false;
+			break;
+
+		case SECURITY_ANNOUNCEMENT:
+			break;
+
+		case LOST_PERSON:
+			cout << "Security will be sweeping the entrances and exits for the missing person. Here is the alert, please keep an eye out: \n";
+			cout << notice.message << "\n";
+			break;
+
+		case VENDOR_CLOSE:
+			break;
+
+		case NETWORK_ERROR:
+			cout << "Due to a network error, the scanning process may take longer than usual. Please remain patient.\n";
+			break;
+
+		case NETWORK_RESTORED:
+			cout << "The network has been fully restored and operations continue as usual. Thank you for your patience.\n";
+			break;
+	}
 }
 
 #endif // TICKETGATE_CPP

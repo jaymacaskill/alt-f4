@@ -3,7 +3,7 @@
 // Jay Macaskill (25198387)
 
 // COS 214 (Software Modelling) Practical 3
-// Last Modified: 28 August 2026
+// Last Modified: 29 August 2026
 
 // MainStage.cpp
 
@@ -22,20 +22,61 @@ MainStage::MainStage(const string& name, int capacity) : EventUnit(name, capacit
 
 void MainStage::open()
 {
-	// TODO - implement MainStage::open
-	throw "Not yet implemented";
+	cout << "The Main Stage has opened and our performers and guest speakers will take to it soon!\n";
+	this->isOpen = true;
 }
 
 void MainStage::close()
 {
-	// TODO - implement MainStage::close
-	throw "Not yet implemented";
+	cout << "The Main Stage is now closing, thank you for joining us and all our performers and guest speakers today.\n";
+	this->isOpen = false;
 }
 
 void MainStage::update(Notice& notice)
 {
-	// TODO - implement MainStage::update
-	throw "Not yet implemented";
+	switch (notice.type)
+	{
+		case OPEN:
+			this->open();
+			break;
+
+		case CLOSE:
+			if(this->isOpen) this->close();
+			break;
+
+		case POWER_ALERT:
+			cout << "We will be switching to backup power due to a power alert, this will dim the lights, but will not interrupt our activities for today.\n";
+			break;
+
+		case POWER_STABILISED:
+			cout << "Venue power has been stabilised, it is wonderful to see you all in full brightness again. Enjoy the rest of our agenda.\n";
+			break;
+
+		case EVACUATE:
+			cout << "This is an emergency evacuation. Remain calm and exit via stage left.\n";
+			this->isOpen = false;
+			break;
+
+		case SECURITY_ANNOUNCEMENT:
+			cout << "Attention everyone, this is an announcement from our security team: \n";
+			cout << notice.message << "\n";
+			break;
+
+		case LOST_PERSON:
+			cout << "Attention. There is a missing person alert: \n" << notice.message << "\n";
+			cout << "If anyone sees the missing person fitting the description, please report to the Control Desk.\n";
+			break;
+
+		case VENDOR_CLOSE:
+			cout << "Please note that the Vendor Hall will be closing now, this will not affect any of the other festivities. Thank you to our wonderful vendors for bringing their magic to GameFest!\n";
+			break;
+
+		case NETWORK_ERROR:
+			break;
+
+		case NETWORK_RESTORED:
+			break;
+	}
 }
 
 #endif // MAINSTAGE_CPP

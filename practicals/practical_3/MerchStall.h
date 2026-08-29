@@ -3,7 +3,7 @@
 // Jay Macaskill (25198387)
 
 // COS 214 (Software Modelling) Practical 3
-// Last Modified: 28 August 2026
+// Last Modified: 29 August 2026
 
 // MerchStall.h
 
@@ -49,8 +49,9 @@ class MerchStall : public EventUnit
 		void close() override;
 
 		/**
-		 * @brief Closes entirely during EVACUATE and CLOSE
+		 * @brief Closes entirely during EVACUATE, VENDOR_CLOSE and CLOSE
 		 * Opens during OPEN
+		 * Relays LOST_PERSON
 		 * Switches to cash only during NETWORK_ERROR and POWER_ALERT
 		 * @param notice The notice received
 		 */
