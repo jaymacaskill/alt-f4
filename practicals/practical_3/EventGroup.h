@@ -3,7 +3,7 @@
 // Jay Macaskill (25198387)
 
 // COS 214 (Software Modelling) Practical 3
-// Last Modified: 28 August 2026
+// Last Modified: 29 August 2026
 
 // EventGroup.cpp
 
@@ -53,11 +53,14 @@ class EventGroup : public EventComponent, public Subject
 		void add(EventComponent* child);
 
 		/**
-		 * @brief Removes a child from the group, if the child is present
+		 * @brief Removes a child from the group, if the child is present and return
+		 * the child as well, so that we don't have to worry about finding orphans and we can pass control
 		 * 
 		 * @param child The child we are trying to remove from the group
+		 * 
+		 * @return The component which was just removed, that way we can move control from one place to another
 		 */
-		void remove(EventComponent* child);
+		EventComponent* remove(EventComponent* child);
 
 		/// @copydoc EventComponent::open
 		void open();
@@ -76,6 +79,9 @@ class EventGroup : public EventComponent, public Subject
 		 * @return Returns the total capacity of all of the children
 		 */
 		int getCapacity();
+
+		/// @copydoc EventComponent::getName
+		const string& getName() override;
 
 		/**
 		 * @brief Issues a notice to all its observers (since EventGroup is an Observer and a Subject)

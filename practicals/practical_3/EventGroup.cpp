@@ -3,7 +3,7 @@
 // Jay Macaskill (25198387)
 
 // COS 214 (Software Modelling) Practical 3
-// Last Modified: 28 August 2026
+// Last Modified: 29 August 2026
 
 // EventGroup.cpp
 
@@ -31,7 +31,12 @@ void EventGroup::add(EventComponent* child)
 	throw "Not yet implemented";
 }
 
-void EventGroup::remove(EventComponent* child)
+const string& EventGroup::getName()
+{
+	return this->name;
+}
+
+EventComponent* EventGroup::remove(EventComponent* child)
 {
 	// TODO - implement EventGroup::remove
 	throw "Not yet implemented";

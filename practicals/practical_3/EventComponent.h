@@ -66,6 +66,8 @@ class EventComponent : public Observer
 
 		/**
 		 * @brief Getter for the name of the component
+		 * 
+		 * @return The name of this component
 		 */
 		virtual const string& getName() = 0;
 
