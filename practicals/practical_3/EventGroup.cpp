@@ -72,4 +72,11 @@ void EventGroup::update(Notice& notice)
 	throw "Not yet implemented";
 }
 
+void EventGroup::transfer(EventGroup* new_parent, EventComponent* unit)
+{
+	// TODO - implement EventGroup::transfer
+	throw "Not yet implemented";
+}
+
+
 #endif // EVENTGROUP_CPP

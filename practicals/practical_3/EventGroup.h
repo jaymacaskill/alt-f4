@@ -91,6 +91,15 @@ class EventGroup : public EventComponent, public Subject
 		 */
 		void update(Notice& notice);
 
+		/**
+		 * @brief Function to transfer ownership of a EventComponent from one EventGroup to another
+		 * If unit does not exist in this EventGroup, we exit safely without making any changes and print a message
+		 * 
+		 * @param new_parent The parent to take over the unit
+		 * @param unit The unit to transfer from this EventGroup to the new one
+		 */
+		void transfer(EventGroup* new_parent, EventComponent* unit);
+
 	private:
 		/**
 		 * @brief The name of this group
