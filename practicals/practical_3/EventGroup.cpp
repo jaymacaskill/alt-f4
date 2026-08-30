@@ -20,7 +20,7 @@
 
 using namespace std;
 
-EventGroup::EventGroup(const string& name) : Subject()
+EventGroup::EventGroup(const string& name) : Subject() // is also a subject, dont call EventComp constr cuz it doesnt have one
 {
 	this->name = name;
 }
@@ -76,6 +76,17 @@ void EventGroup::transfer(EventGroup* new_parent, EventComponent* unit)
 {
 	// TODO - implement EventGroup::transfer
 	throw "Not yet implemented";
+}
+
+EventGroup::~EventGroup()
+{
+	// free whole subtree, calls delete on all pointers in 'children'
+	for (EventComponent* child : children)
+	{
+		delete child;
+	}
+
+	children.clear();
 }
 
 
