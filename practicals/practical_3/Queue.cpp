@@ -117,16 +117,21 @@ pair<string, string> Queue::getNextTwo()
 	players.erase(players.begin());
 	this->dismiss();
 
+	cout << p1 << " and " << p2 << " are moving to the arena!" << endl;
 	return {p1, p2};
 }
 
-string Queue::getNext()
+string Queue::removePlayer()
 {
-	string p = players.front();
+	if(players.empty()) return "";
+
+	string name = players.front();
 	players.erase(players.begin());
 	this->dismiss();
 
-	return p;
+	cout << name << " left the queue." << endl;
+
+	return name;
 }
 
 bool Queue::isEmpty() const { return players.empty(); }

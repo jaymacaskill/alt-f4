@@ -69,13 +69,6 @@ class Queue : public EventUnit
 		pair<string, string> getNextTwo();
 
 		/**
-		 * @brief Returns one person to be added into the match
-		 * 
-		 * @return The one person to be added into the match
-		 */
-		string getNext();
-
-		/**
 		 * @brief An isEmpty function for the players queue
 		 * 
 		 * @return True if the players queue is empty, false if the players queue is not
