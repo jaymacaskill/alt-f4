@@ -45,40 +45,63 @@ void DemoStation::update(Notice& notice)
 			break;
 
 		case POWER_ALERT:
-			cout << "Power alert received, " << this->name << " is temporarily closed.\n";
-			this->isOpen = false;
+			if (isOpen)
+			{
+				cout << "Power alert received, " << this->name << " is temporarily closed.\n";
+				this->isOpen = false;
+				this->powerAlert = true;
+			}
 			break;
 
 		case POWER_STABILISED:
-			cout << "Venue power has stabilised, reopening " << this->name << ".\n";
-			this->isOpen = true;
+			if (this->powerAlert)
+			{
+				cout << "Venue power has stabilised, reopening " << this->name << ".\n";
+				this->isOpen = true;
+				this->powerAlert = false;
+			}
 			break;
 
 		case EVACUATE:
-			cout << "Emergency evacuation. Please calmly follow vendor staff to the nearest emergency exit.\n";
-			this->isOpen = false;
+			if (this->isOpen)
+			{
+				cout << "Emergency evacuation. Please calmly follow vendor staff to the nearest emergency exit.\n";
+				this->isOpen = false;
+			}
 			break;
 
 		case SECURITY_ANNOUNCEMENT:
 			break;
 
 		case LOST_PERSON:
+			if (this->isOpen)
 			cout << "Please keep an eye out for the missing individual while you enjoy your demonstrations.\n";
 			break;
 
 		case VENDOR_CLOSE:
-			cout << "The Vendor Hall has now closed. Thank you for spending time with " << this->name << " today.\n";
-			this->close();
+			if (this->isOpen)
+			{
+				cout << "The Vendor Hall has now closed. Thank you for spending time with " << this->name << " today.\n";
+				this->close();
+			}
 			break;
 
 		case NETWORK_ERROR:
-			cout << "Please note that we will be swithing all demostrations to offline mode due to the network error.\n";
-			this->offlineMode = true;
+			if (this->isOpen)
+			{
+				cout << "Please note that we will be swithing all demostrations to offline mode due to the network error.\n";
+				this->offlineMode = true;
+				networkAlert = true;
+			}
 			break;
 
 		case NETWORK_RESTORED:
-			cout << "Network has been fully restored. We apologise for any inconvenience.\n";
-			this->offlineMode = false;
+			if (this->isOpen && networkAlert)
+			{
+				cout << "Network has been fully restored. We apologise for any inconvenience.\n";
+				this->offlineMode = false;
+				networkAlert = false;
+			}
 			break;
 	}
 }

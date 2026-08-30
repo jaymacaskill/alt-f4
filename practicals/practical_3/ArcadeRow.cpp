@@ -45,18 +45,29 @@ void ArcadeRow::update(Notice& notice)
 			break;
 
 		case EVACUATE:
-			this->isOpen = false;
-			cout << "Emergency evacuation. Please calmly make use of arcade exits.\n";
+			if (this->isOpen)
+			{
+				this->isOpen = false;
+				cout << "Emergency evacuation. Please calmly make use of arcade exits.\n";
+			}
 			break;
 
 		case POWER_ALERT:
-			cout << "Due to a power alert, the arcade will be closing.\n";
-			this->isOpen = false;
+			if (this->isOpen)
+			{
+				cout << "Due to a power alert, the arcade will be closing.\n";
+				this->isOpen = false;
+				powerAlert = true;
+			}
 			break;
 
 		case POWER_STABILISED:
-			cout << "Power has been stabilised and the arcade is open.\n";
-			this->isOpen = true;
+			if (powerAlert)
+			{
+				cout << "Power has been stabilised and the arcade is open.\n";
+				this->isOpen = true;
+				powerAlert = false;
+			}
 			break;
 
 		case NETWORK_ERROR:

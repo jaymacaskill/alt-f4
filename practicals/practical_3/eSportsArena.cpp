@@ -46,41 +46,66 @@ void eSportsArena::update(Notice& notice)
 			break;
 
 		case POWER_ALERT:
-			cout << "Due to a power alert delivered by the control desk, the arena will be temporarily closing.\n";
-			this->isOpen = false;
+			if (this->isOpen)
+			{
+				cout << "Due to a power alert delivered by the control desk, the arena will be temporarily closing.\n";
+				this->isOpen = false;
+				powerAlert = true;
+			}
 			break;
 
 		case POWER_STABILISED:
-			cout << "Thank you contestants for your patience. Power is restored and matches will resume shortly.\n";
-			this->isOpen = true;
+			if (powerAlert)
+			{
+				cout << "Thank you contestants for your patience. Power is restored and matches will resume shortly.\n";
+				this->isOpen = true;
+				powerAlert = false;
+			}
 			break;
 
 		case EVACUATE:
-			cout << "Emergency evacuation. Please exit via arena doors.\n";
-			this->isOpen = false;
+			if (this->isOpen)
+			{
+				cout << "Emergency evacuation. Please exit via arena doors.\n";
+				this->isOpen = false;
+			}
 			break;
 
 		case SECURITY_ANNOUNCEMENT:
-			cout << "Competitors, please take note of the security announcement: \n";
-			cout << notice.message << "\n";
+			if (this->isOpen)
+			{
+				cout << "Competitors, please take note of the security announcement: \n";
+				cout << notice.message << "\n";
+			}
 			break;
 
 		case LOST_PERSON:
-			cout << "We have a missing person. Please listen to the description and keep an eye out.\n";
-			cout << notice.message << "\n";
+			if (this->isOpen)
+			{
+				cout << "We have a missing person. Please listen to the description and keep an eye out.\n";
+				cout << notice.message << "\n";
+			}
 			break;
 
 		case VENDOR_CLOSE:
 			break;
 
 		case NETWORK_ERROR:
-			cout << "Due to a network error we will be unable to proceed with the competition. We will resume as soon as possible.\n";
-			this->isOpen = false;
+			if (isOpen)
+			{
+				cout << "Due to a network error we will be unable to proceed with the competition. We will resume as soon as possible.\n";
+				this->isOpen = false;
+				networkAlert = true;
+			}
 			break;
 
 		case NETWORK_RESTORED:
-			cout << "Thank you for your patients, contestants. Network has been restored and competitions have resumed.\n";
-			this->isOpen = true;
+			if (networkAlert)
+			{
+				cout << "Thank you for your patients, contestants. Network has been restored and competitions have resumed.\n";
+				this->isOpen = true;
+				networkAlert = false;
+			}
 			break;
 	}
 }

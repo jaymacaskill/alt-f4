@@ -45,35 +45,57 @@ void TicketGate::update(Notice& notice)
 			break;
 
 		case POWER_ALERT:
-			cout << "There has been a power notice, we will be switching to backup scanners, this will not cause any issues.\n";
+			if (this->isOpen)
+			{
+				cout << "There has been a power notice, we will be switching to backup scanners, this will not cause any issues.\n";
+				powerAlert = true;
+			}
 			break;
 
 		case POWER_STABILISED:
-			cout << "The power is stabilised and operations will resume as normal.\n";
+			if (powerAlert)
+			{
+				cout << "The power is stabilised and operations will resume as normal.\n";
+				powerAlert = false;
+			}
 			break;
 
 		case EVACUATE:
-			cout << "Please calmly evacuate via the gates due to an emergency underway.\n";
-			this->isOpen = false;
+			if (this->isOpen)
+			{
+				cout << "Please calmly evacuate via the gates due to an emergency underway.\n";
+				this->isOpen = false;
+			}
 			break;
 
 		case SECURITY_ANNOUNCEMENT:
 			break;
 
 		case LOST_PERSON:
-			cout << "Security will be sweeping the entrances and exits for the missing person. Here is the alert, please keep an eye out: \n";
-			cout << notice.message << "\n";
+			if (this->isOpen)
+			{
+				cout << "Security will be sweeping the entrances and exits for the missing person. Here is the alert, please keep an eye out: \n";
+				cout << notice.message << "\n";
+			}
 			break;
 
 		case VENDOR_CLOSE:
 			break;
 
 		case NETWORK_ERROR:
-			cout << "Due to a network error, the scanning process may take longer than usual. Please remain patient.\n";
+			if (this->isOpen)
+			{
+				cout << "Due to a network error, the scanning process may take longer than usual. Please remain patient.\n";
+				networkAlert = true;
+			}
 			break;
 
 		case NETWORK_RESTORED:
-			cout << "The network has been fully restored and operations continue as usual. Thank you for your patience.\n";
+			if (networkAlert)
+			{
+				cout << "The network has been fully restored and operations continue as usual. Thank you for your patience.\n";
+				networkAlert = false;
+			}
 			break;
 	}
 }

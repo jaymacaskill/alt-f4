@@ -46,34 +46,56 @@ void Queue::update(Notice& notice)
 			break;
 
 		case POWER_ALERT:
-			cout << "We have received a power alert. Please note that you may continue queueing while the tournament is suspended if you wish.\n";
+			if (this->isOpen)
+			{
+				cout << "We have received a power alert. Please note that you may continue queueing while the tournament is suspended if you wish.\n";
+				powerAlert = true;
+			}
 			break;
 
 		case POWER_STABILISED:
-			cout << "The arena has now reopened and power has been restored. Thank you for your patience.\n";
+			if (powerAlert)
+			{
+				cout << "The arena has now reopened and power has been restored. Thank you for your patience.\n";
+				powerAlert = false;
+			}
 			break;
 
 		case EVACUATE:
-			cout << "Attention all, please calmly exit via the arena doors due to an emergency evacuation.\n";
-			this->isOpen = false;
+			if (this->isOpen)
+			{
+				cout << "Attention all, please calmly exit via the arena doors due to an emergency evacuation.\n";
+				this->isOpen = false;
+			}
 			break;
 
 		case SECURITY_ANNOUNCEMENT:
 			break;
 
 		case LOST_PERSON:
-			cout << "Please note that arena security will be closely monitoring the queueing area for the missing person.\n";
+			if (this->isOpen)
+			{
+				cout << "Please note that arena security will be closely monitoring the queueing area for the missing person.\n";
+			}
 			break;
 
 		case VENDOR_CLOSE:
 			break;
 
 		case NETWORK_ERROR:
-			cout << "The tournament has been suspended due to a network error. However, you may continue queueing if you wish.\n";
+			if (this->isOpen)
+			{
+				cout << "The tournament has been suspended due to a network error. However, you may continue queueing if you wish.\n";
+				networkAlert = true;
+			}
 			break;
 
 		case NETWORK_RESTORED:
-			cout << "We are pleased to announce that the network has been restored, the arena has reopened and the tournament has continued. Thank you for your patience.\n";
+			if (networkAlert)
+			{
+				cout << "We are pleased to announce that the network has been restored, the arena has reopened and the tournament has continued. Thank you for your patience.\n";
+				networkAlert = false;
+			}
 			break;
 	}
 }

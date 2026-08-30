@@ -77,6 +77,10 @@ class EventComponent : public Observer
 		 */
 		bool isOpen = false;
 
+		bool powerAlert = false;  /**< Tells us whether a power alert is occurring */
+
+		bool networkAlert = false; /**< Tells us whether a network alert is occurring */
+
 		/**
 		 * @brief The total amount of customers currently inside this component
 		 */
