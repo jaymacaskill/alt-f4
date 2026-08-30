@@ -52,16 +52,33 @@ const string& EventGroup::getName()
 	return this->name;
 }
 
+// doesnt destrow the child, only detach it
 EventComponent* EventGroup::remove(EventComponent* child)
 {
-	// TODO - implement EventGroup::remove
-	throw "Not yet implemented";
+	if (child == nullptr) {
+
+		return nullptr;
+	}
+
+	auto it = find(children.begin(), children.end(), child);
+
+	if (it == children.end())
+	{
+		cout << "Could not remove an unrecognised component from " << this->name << ".\n";
+		return nullptr;
+	}
+
+	children.erase(it); // removes the ownership relationshp
+	this->detach(child); // remove observer registration, call code from Subject class
+
+	return child; // return ptr instead of delete,
+
 }
 
+// for a group it will open the whole tree 
 void EventGroup::open()
 {
-	// TODO - implement EventGroup::open
-	throw "Not yet implemented";
+	
 }
 
 void EventGroup::close()
