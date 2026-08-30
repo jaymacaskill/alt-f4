@@ -78,7 +78,14 @@ EventComponent* EventGroup::remove(EventComponent* child)
 // for a group it will open the whole tree 
 void EventGroup::open()
 {
-	
+	cout << this->name << " is now open.\n";
+
+	this->isOpen = true;
+
+	for (EventComponent* child : children)
+	{
+		child->open();
+	}
 }
 
 void EventGroup::close()
