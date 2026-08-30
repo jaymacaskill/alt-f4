@@ -27,8 +27,24 @@ EventGroup::EventGroup(const string& name) : Subject() // is also a subject, don
 
 void EventGroup::add(EventComponent* child)
 {
-	// TODO - implement EventGroup::add
-	throw "Not yet implemented";
+	if (child == nullptr){
+
+		return;
+	}
+
+	// dupe check
+	if (find(children.begin(), children.end(), child) != children.end())
+	{
+		return; // already owned by this group, we avoid double ownership/double free so it doesnt have dupe children
+	}
+
+	// Composite side
+	children.push_back(child); // 'this' owns this childs lifetime now
+
+	// Observer side
+	this->attach(child); // every child added to the group is auto registered to hear the groups notices
+
+
 }
 
 const string& EventGroup::getName()
