@@ -3,7 +3,7 @@
 // Jay Macaskill (25198387)
 
 // COS 214 (Software Modelling) Practical 3
-// Last Modified: 29 August 2026
+// Last Modified: 30 August 2026
 
 // main.cpp
 
@@ -244,9 +244,11 @@ int main()
     cout << "\n===== " << tournament_wing->getName() << " =====\n";
     cout << "🎮 Nora and Andy join the queue for the tournament..." << endl;
 
-    tournament_queue->admit();
-    tournament_queue->admit();
-    tournament_queue->admit();
+    tournament_queue->addPlayer("Nora");
+    tournament_queue->addPlayer("Andy");
+    tournament_queue->addPlayer("Susie");
+
+    cout << "\nQueue status:" << endl; tournament_queue->reportStatus();
 
     cout << "\n⚡ While Nora and Andy are waiting to get let in to the tournament, the power fails!" << endl;
 
@@ -256,9 +258,6 @@ int main()
 
     control_desk->issueNotice(power);
 
-    tournament_queue->dismiss();
-    tournament_queue->dismiss();
-
     cout << "\n🛠️ Thankfully, the technicians got a nice bonus and have been very efficient ever since." << endl;
 
     power.message = "Our technical team has resolved the crisis";
@@ -266,11 +265,28 @@ int main()
 
     control_desk->issueNotice(power);
 
-    cout << "\n🎯 Nora and Andy play their game, Andy is winning!" << endl;
+    cout << "\n🎯 Nora and Andy play their game and Susie is next up!" << endl;
+    
+    while (tournament_queue->size() > 1)
+    {
+        auto [p1, p2] = tournament_queue->getNextTwo();
+        arena->addPlayer(p1);
+        arena->addPlayer(p2);
+        arena->runMatch();
+    }
 
-    arena->admit();
-    arena->admit();
+    if (tournament_queue->size() == 1)
+    {
+        string last = tournament_queue->removePlayer();
+        arena->addPlayer(last);
+        cout << last << " receives a bye to the final!" << endl;
+    }
 
+    cout << "\n🏆 FINAL MATCH!" << endl;
+    arena->runMatch();
+    cout << "🏆 CHAMPION: " << arena->getWinner() << " 🏆" << endl;
+
+    cout << "\nArena status:" << endl; arena->reportStatus();
 
     // ==== TRANSFER: Merch Stall moves ==== //
 
