@@ -75,9 +75,83 @@ void anonymous_example()
 // but so we can call functions on objects, we do not use this approach for the demo
 }
 
+/**
+ * @brief SD3 demo: a small power-failure scenario.
+ * One Composite group with two different concrete leaf types,
+ * both reacting to the same notice through polymorphism.
+ */
+void sd3_powerAlertDemo()
+{
+    MainStage* stage  = new MainStage("Main Stage", 10);
+    ArcadeRow* arcade = new ArcadeRow("Arcade Row", 10);
+
+    MainHall* hall = new MainHall();
+    hall->add(stage);
+    hall->add(arcade);
+
+    ControlDesk* desk = new ControlDesk();
+    desk->attach(hall);
+
+    stage->open();
+    arcade->open();
+
+    Notice alert;
+    alert.type = POWER_ALERT;
+    alert.message = "Power alert";
+    desk->issueNotice(alert);
+
+    Notice stable;
+    stable.type = POWER_STABILISED;
+    stable.message = "Power stabilised";
+    desk->issueNotice(stable);
+
+    desk->detach(hall);
+    delete hall;
+    delete desk;
+}
+
+/**
+ * @brief SD4 demo: minimal signature scenario.
+ * Two Composite levels, a mid-scenario ownership transfer,
+ * and Observer attach/detach around a single notification.
+ */
+void sd4_transferDemo()
+{
+    MerchStall* stall = new MerchStall("Test Stall", 5);
+
+    VendorHall* origin      = new VendorHall();
+    origin->add(stall);
+
+    MainHall* destination   = new MainHall();
+
+    GameFest* root = new GameFest();
+    root->add(origin);
+    root->add(destination);
+
+    ControlDesk* desk = new ControlDesk();
+    desk->attach(root);
+
+    // reassignment mid-scenario
+    origin->transfer(destination, stall);
+
+    Notice close;
+    close.type = VENDOR_CLOSE;
+    close.message = "Vendors closing";
+    desk->issueNotice(close);
+
+    desk->detach(root);
+
+    delete root;
+    delete desk;
+}
+
 int main()
 {
+    cout << "===== TEST FUNCTIONS =====\n";
     anonymous_example();
+    sd3_powerAlertDemo();
+    sd4_transferDemo();
+    cout << "===== END OF TEST FUNCTIONS =====\n";
 
     // === CREATE EVENT (with small capacities) === //
 
