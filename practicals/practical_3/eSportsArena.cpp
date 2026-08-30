@@ -94,9 +94,19 @@ void eSportsArena::addPlayer(const string& name)
 
 string eSportsArena::runMatch()
 {
+	if (currentPlayers.size() < 2)
+	{
+		if (currentPlayers.size() == 1)
+		{
+			champion = currentPlayers[0];
+			return champion;
+		}
+		return "";
+	}
 	string p1 = currentPlayers[0];
 	string p2 = currentPlayers[1];
-	currentPlayers.clear();
+	dismiss();
+	dismiss();
 
 	int score1 = rand() % 100 + 1;
 	int score2 = rand() % 100 + 1;
@@ -108,23 +118,32 @@ string eSportsArena::runMatch()
 	{
 		cout << "🏆 " << p1 << " wins!" << endl;
 		champion = p1;
-		dismiss();
-		currentPlayers.erase(currentPlayers.begin());
+
+		currentPlayers.erase(currentPlayers.begin() + 1);
+
+		cout << p1 << " advances!" << endl;
+		cout << p2 << " has been eliminated." << endl;
+		
+		admit();
 		return p1;
 	}
 	else if (score2 > score1)
 	{
 		cout << "🏆 " << p2 << " wins!" << endl;
 		champion = p2;
-		dismiss();
-		currentPlayers.erase(currentPlayers.begin() + 1);
+		
+		currentPlayers.erase(currentPlayers.begin());
+		
+		cout << p1 << " advances!" << endl;
+		cout << p2 << " has been eliminated." << endl;
+
+		admit();
 		return p2;
 	}
 	else
 	{
 		cout << "Tie! Rematch..." << endl;
-		currentPlayers.push_back(p1);
-		currentPlayers.push_back(p2);
+		admit(); admit();
 	}
 	return runMatch();
 }

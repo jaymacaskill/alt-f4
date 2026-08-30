@@ -69,13 +69,6 @@ class Queue : public EventUnit
 		pair<string, string> getNextTwo();
 
 		/**
-		 * @brief Returns one person to be added into the match
-		 * 
-		 * @return The one person to be added into the match
-		 */
-		string getNext();
-
-		/**
 		 * @brief An isEmpty function for the players queue
 		 * 
 		 * @return True if the players queue is empty, false if the players queue is not
@@ -88,6 +81,13 @@ class Queue : public EventUnit
 		 * @return The size of the queue
 		 */
 		int size() const;
+
+		/**
+		 * @brief Removes a player from the queue
+		 * 
+		 * @return The name of the removed player
+		 */
+		string removePlayer();
 
 	private:
 		vector<string> players; /**< The vector of players */
