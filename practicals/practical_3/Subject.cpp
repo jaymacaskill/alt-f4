@@ -63,10 +63,14 @@ void Subject::detach(Observer* observer)
 	// so nothing happens when it isnt found
 }
 
+// push function, push everything an observer needs to know, which is inside 'notice'
 void Subject::notify(Notice& notice)
 {
-    // TODO - implement Subject::notice
-	throw "Not yet implemented";
+    // loop over all observers and all update(notice) on all of them, in registr order
+	for(Observer* observer : observers)
+	{
+		observer->update(notice);
+	}
 }
 
 #endif // SUBJECT_CPP
