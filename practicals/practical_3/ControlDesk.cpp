@@ -20,8 +20,7 @@ using namespace std;
 
 void ControlDesk::issueNotice(Notice& notice)
 {
-	// TODO - implement ControlDesk::issueNotice
-	throw "Not yet implemented";
+	this->notify(notice); // forwards to Subject::notify(notice), which loop over observers, and call update(notice) on each one
 }
 
 #endif // CONTROLDESK_CPP
