@@ -36,7 +36,7 @@ class Subject
 		 * @brief Registers an observer for future notifications
 		 * If the observer is already registered, nothing should happen to avoid duplicate notifications
 		 * 
-		 * @param observer Observer to registered. May not be nullptr (perform null check)
+		 * @param observer Observer to registered. we do a nullcheck to prevent nullptr
 		 */
 		virtual void attach(Observer* observer);
 
@@ -60,7 +60,7 @@ class Subject
 
 	protected:
 		/**
-		 * @brief Non-owning pointers to currently registered observers
+		 * @brief Non owning pointers to currently registered observers
 		 */
 		vector<Observer*> observers;
 };

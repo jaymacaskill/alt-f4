@@ -23,8 +23,24 @@ Subject::~Subject() { }
 
 void Subject::attach(Observer* observer)
 {
-	// TODO - implement Subject::attach
-	throw "Not yet implemented";
+	if (observer == nullptr) // null check, so program dont crash when 'notify()' tries to call 'update()' on the nullptr
+	{
+		return;
+	}
+
+	for(Observer* exist : observers) // we check for dupes, so observer can never register more than once
+	{
+		if (exist == observer){
+
+			return; // do nothing if we found a dupe
+		}
+	}
+
+	// if we come here, we add the observer ptr to end of the vector
+	// also decides the 'notify' order bcs observers get notified in the order they were attached
+	// bcs notify() goes front to back
+
+	observers.push_back(observer);
 }
 
 void Subject::detach(Observer* observer)
