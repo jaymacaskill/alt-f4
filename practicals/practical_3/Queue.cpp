@@ -3,7 +3,7 @@
 // Jay Macaskill (25198387)
 
 // COS 214 (Software Modelling) Practical 3
-// Last Modified: 29 August 2026
+// Last Modified: 30 August 2026
 
 // Queue.cpp
 
@@ -15,6 +15,7 @@
 #include "EventUnit.h"
 
 #include <iostream>
+#include <vector>
 
 using namespace std;
 
@@ -76,5 +77,38 @@ void Queue::update(Notice& notice)
 			break;
 	}
 }
+
+void Queue::addPlayer(const string& name)
+{
+	players.push_back(name);
+	this->admit();
+	cout << name << " joined the tournament queue! 👀" << endl;
+}
+
+pair<string, string> Queue::getNextTwo()
+{
+	string p1 = players.front();
+	players.erase(players.begin());
+	this->dismiss();
+
+	string p2 = players.front();
+	players.erase(players.begin());
+	this->dismiss();
+
+	return {p1, p2};
+}
+
+string Queue::getNext()
+{
+	string p = players.front();
+	players.erase(players.begin());
+	this->dismiss();
+
+	return p;
+}
+
+bool Queue::isEmpty() const { return players.empty(); }
+
+int Queue::size() const { return players.size(); }
 
 #endif // QUEUE_CPP

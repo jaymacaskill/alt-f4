@@ -3,7 +3,7 @@
 // Jay Macaskill (25198387)
 
 // COS 214 (Software Modelling) Practical 3
-// Last Modified: 29 August 2026
+// Last Modified: 30 August 2026
 
 // Queue.h
 
@@ -14,6 +14,7 @@
 #include "EventUnit.h"
 
 #include <iostream>
+#include <vector>
 
 using namespace std;
 
@@ -49,6 +50,48 @@ class Queue : public EventUnit
 		 * @param notice The notice received
 		 */
 		void update(Notice& notice) override;
+
+// ===== LIVE TOURNAMENT ====== //
+	// public:
+
+		/**
+		 * @brief Adds a player into the queue
+		 * 
+		 * @param name The name of the player to be added to the queue
+		 */
+		void addPlayer(const string& name);
+
+		/**
+		 * @brief Returns two people to be added into the match
+		 * 
+		 * @return The two people to be added into the match
+		 */
+		pair<string, string> getNextTwo();
+
+		/**
+		 * @brief Returns one person to be added into the match
+		 * 
+		 * @return The one person to be added into the match
+		 */
+		string getNext();
+
+		/**
+		 * @brief An isEmpty function for the players queue
+		 * 
+		 * @return True if the players queue is empty, false if the players queue is not
+		 */
+		bool isEmpty() const;
+
+		/**
+		 * @brief A function to get the size of the queue
+		 * 
+		 * @return The size of the queue
+		 */
+		int size() const;
+
+	private:
+		vector<string> players; /**< The vector of players */
+
 };
 
 #endif // QUEUE_H

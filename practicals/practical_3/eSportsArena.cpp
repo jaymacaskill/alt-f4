@@ -3,7 +3,7 @@
 // Jay Macaskill (25198387)
 
 // COS 214 (Software Modelling) Practical 3
-// Last Modified: 29 August 2026
+// Last Modified: 30 August 2026
 
 // eSportsArena.cpp
 
@@ -15,6 +15,7 @@
 #include "EventUnit.h"
 
 #include <iostream>
+#include <vector>
 
 using namespace std;
 
@@ -83,5 +84,53 @@ void eSportsArena::update(Notice& notice)
 			break;
 	}
 }
+
+void eSportsArena::addPlayer(const string& name)
+{
+	currentPlayers.push_back(name);
+	admit();
+	cout << name << " has entered the arena!" << endl;
+}
+
+string eSportsArena::runMatch()
+{
+	string p1 = currentPlayers[0];
+	string p2 = currentPlayers[1];
+	currentPlayers.clear();
+
+	int score1 = rand() % 100 + 1;
+	int score2 = rand() % 100 + 1;
+
+	cout << p1 << " rolled: " << score1 << " 🎲" << endl;
+	cout << p2 << " rolled: " << score2 << " 🎲" << endl;
+
+	if (score1 > score2)
+	{
+		cout << "🏆 " << p1 << " wins!" << endl;
+		champion = p1;
+		dismiss();
+		currentPlayers.erase(currentPlayers.begin());
+		return p1;
+	}
+	else if (score2 > score1)
+	{
+		cout << "🏆 " << p2 << " wins!" << endl;
+		champion = p2;
+		dismiss();
+		currentPlayers.erase(currentPlayers.begin() + 1);
+		return p2;
+	}
+	else
+	{
+		cout << "Tie! Rematch..." << endl;
+		currentPlayers.push_back(p1);
+		currentPlayers.push_back(p2);
+	}
+	return runMatch();
+}
+
+string eSportsArena::getWinner() const { return champion; }
+
+void eSportsArena::clearArena() { currentPlayers.clear(); champion = ""; }
 
 #endif // ESPORTSARENA_CPP
