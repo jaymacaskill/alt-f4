@@ -133,4 +133,14 @@ bool Queue::isEmpty() const { return players.empty(); }
 
 int Queue::size() const { return players.size(); }
 
+string Queue::removePlayer()
+{
+	if (players.empty()) return "";
+	string name = players.front();
+	players.erase(players.begin());
+	this->dismiss();
+	cout << name << " left the queue." << endl;
+	return name;
+}
+
 #endif // QUEUE_CPP

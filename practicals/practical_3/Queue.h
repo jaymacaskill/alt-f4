@@ -89,6 +89,13 @@ class Queue : public EventUnit
 		 */
 		int size() const;
 
+		/**
+		 * @brief Removes a player from the queue
+		 * 
+		 * @return The name of the player removed
+		 */
+		string removePlayer();
+
 	private:
 		vector<string> players; /**< The vector of players */
 
