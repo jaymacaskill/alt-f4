@@ -45,8 +45,22 @@ void Subject::attach(Observer* observer)
 
 void Subject::detach(Observer* observer)
 {
-	// TODO - implement Subject::detach
-	throw "Not yet implemented";
+	if (observer == nullptr) { // null check
+
+		return;
+	}
+
+	
+	for (auto it = observers.begin(); it != observers.end(); ++it)
+	{
+		if (*it == observer) // deref 'it' to get its actual stored Observer*(ptr)
+		{
+			observers.erase(it); // if we found it we remove it from vec
+			return;
+		}
+	}
+
+	// so nothing happens when it isnt found
 }
 
 void Subject::notify(Notice& notice)
