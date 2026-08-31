@@ -88,8 +88,13 @@ void EventGroup::open()
 
 void EventGroup::close()
 {
-	// TODO - implement EventGroup::close
-	throw "Not yet implemented";
+	cout << this->name << " is now open.\n";
+	this->isOpen = true;
+
+	for (EventComponent* child : children)
+	{
+		child->open();
+	}
 }
 
 void EventGroup::reportStatus()
