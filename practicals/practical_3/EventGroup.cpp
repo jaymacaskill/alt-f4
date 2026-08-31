@@ -110,8 +110,14 @@ void EventGroup::reportStatus()
 
 int EventGroup::getCapacity()
 {
-	// TODO - implement EventGroup::getCapacity
-	throw "Not yet implemented";
+	int total = 0;
+
+	for (EventComponent* child : children)
+	{
+		total += child->getCapacity(); //adds for each child, recursive
+	}
+
+	return total;
 }
 
 void EventGroup::update(Notice& notice)
