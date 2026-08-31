@@ -80,6 +80,11 @@ class EventGroup : public EventComponent, public Subject
 		 */
 		int getCapacity();
 
+		/**
+		* @brief Returns how many people currently occupy this component, as
+		* opposed to getCapacity() which returns how many it can hold at most.
+		* @return For a composite(EventGroup), the sum of its children's current occupancy.
+		*/
 		int getOccupancy();
 
 

@@ -121,6 +121,18 @@ int EventGroup::getCapacity()
 	return total;
 }
 
+int EventGroup::getOccupancy()
+{
+	int total = 0;
+
+	for (EventComponent* child : children)
+	{
+		total += child->getOccupancy();
+	}
+
+	return total;
+}
+
 void EventGroup::update(Notice& notice)
 {
 	// Track this group's own state
