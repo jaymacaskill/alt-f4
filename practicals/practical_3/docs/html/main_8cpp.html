@@ -101,6 +101,9 @@ $(function(){initNavTree('main_8cpp.html','',''); });
 <code>#include &quot;<a class="el" href="TicketGate_8h_source.html">TicketGate.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="RetroCorner_8h_source.html">RetroCorner.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="ArcadeRow_8h_source.html">ArcadeRow.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="ClassicGames_8h_source.html">ClassicGames.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="PinballAlley_8h_source.html">PinballAlley.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="CosplayCorner_8h_source.html">CosplayCorner.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="TournamentWing_8h_source.html">TournamentWing.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="eSportsArena_8h_source.html">eSportsArena.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="Queue_8h_source.html">Queue.h</a>&quot;</code><br />
@@ -113,11 +116,21 @@ $(function(){initNavTree('main_8cpp.html','',''); });
 <code>#include &quot;<a class="el" href="Notice_8h_source.html">Notice.h</a>&quot;</code><br />
 <code>#include &lt;iostream&gt;</code><br />
 <code>#include &lt;vector&gt;</code><br />
+<code>#include &lt;cstdlib&gt;</code><br />
+<code>#include &lt;ctime&gt;</code><br />
+<code>#include &lt;cassert&gt;</code><br />
+<code>#include &lt;sstream&gt;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:af11e39fb68923ff0ad7892e7ebb1c4e2" id="r_af11e39fb68923ff0ad7892e7ebb1c4e2"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#af11e39fb68923ff0ad7892e7ebb1c4e2">anonymous_example</a> ()</td></tr>
 <tr class="memdesc:af11e39fb68923ff0ad7892e7ebb1c4e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Demonstrates that anonymous objects are safely deleted by the Composite destructor.  <br /></td></tr>
+<tr class="memitem:a39a61ce76f86b744674fe1f8f1e54506" id="r_a39a61ce76f86b744674fe1f8f1e54506"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a39a61ce76f86b744674fe1f8f1e54506">sd2_powerAlertDemo</a> ()</td></tr>
+<tr class="memdesc:a39a61ce76f86b744674fe1f8f1e54506"><td class="mdescLeft">&#160;</td><td class="mdescRight">SD2 demo: a small power-failure scenario. One Composite group with two different concrete leaf types, both reacting to the same notice through polymorphism.  <br /></td></tr>
+<tr class="memitem:a6b1aa0dc895c9d4f4b97130e095a4b21" id="r_a6b1aa0dc895c9d4f4b97130e095a4b21"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a6b1aa0dc895c9d4f4b97130e095a4b21">sd4_transferDemo</a> ()</td></tr>
+<tr class="memdesc:a6b1aa0dc895c9d4f4b97130e095a4b21"><td class="mdescLeft">&#160;</td><td class="mdescRight">SD4 demo: minimal signature scenario. Two Composite levels, a mid-scenario ownership transfer, and <a class="el" href="classObserver.html" title="Receives notifications from a Subject it is registered with.">Observer</a> attach/detach around a single notification.  <br /></td></tr>
+<tr class="memitem:af9241c2d7e2f9e64bb2a027896a2198e" id="r_af9241c2d7e2f9e64bb2a027896a2198e"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#af9241c2d7e2f9e64bb2a027896a2198e">eventGroupTests</a> ()</td></tr>
+<tr class="memdesc:af9241c2d7e2f9e64bb2a027896a2198e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Extra assert-based tests targeting <a class="el" href="classEventGroup.html" title="A composite grouping of EventComponents (e.g. the main hall).">EventGroup</a> specifically: the duplicate-add guard, a safe remove() of an unowned component, getOccupancy()'s recursion across two Composite levels, and both branches of checkCapacity() - including proof that the CAPACITY_ALERT it raises really cascades through <a class="el" href="classObserver.html" title="Receives notifications from a Subject it is registered with.">Observer</a> into a leaf's own update(), not just an <a class="el" href="classEventGroup.html" title="A composite grouping of EventComponents (e.g. the main hall).">EventGroup</a> print statement.  <br /></td></tr>
 <tr class="memitem:ae66f6b31b5ad750f1fe042a706a4e3d4" id="r_ae66f6b31b5ad750f1fe042a706a4e3d4"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a> ()</td></tr>
 </table>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
@@ -140,6 +153,25 @@ Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="af9241c2d7e2f9e64bb2a027896a2198e" name="af9241c2d7e2f9e64bb2a027896a2198e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af9241c2d7e2f9e64bb2a027896a2198e">&#9670;&#160;</a></span>eventGroupTests()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void eventGroupTests </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Extra assert-based tests targeting <a class="el" href="classEventGroup.html" title="A composite grouping of EventComponents (e.g. the main hall).">EventGroup</a> specifically: the duplicate-add guard, a safe remove() of an unowned component, getOccupancy()'s recursion across two Composite levels, and both branches of checkCapacity() - including proof that the CAPACITY_ALERT it raises really cascades through <a class="el" href="classObserver.html" title="Receives notifications from a Subject it is registered with.">Observer</a> into a leaf's own update(), not just an <a class="el" href="classEventGroup.html" title="A composite grouping of EventComponents (e.g. the main hall).">EventGroup</a> print statement. </p>
+
+</div>
+</div>
 <a id="ae66f6b31b5ad750f1fe042a706a4e3d4" name="ae66f6b31b5ad750f1fe042a706a4e3d4"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae66f6b31b5ad750f1fe042a706a4e3d4">&#9670;&#160;</a></span>main()</h2>
 
@@ -154,6 +186,44 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+</div>
+</div>
+<a id="a39a61ce76f86b744674fe1f8f1e54506" name="a39a61ce76f86b744674fe1f8f1e54506"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a39a61ce76f86b744674fe1f8f1e54506">&#9670;&#160;</a></span>sd2_powerAlertDemo()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void sd2_powerAlertDemo </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>SD2 demo: a small power-failure scenario. One Composite group with two different concrete leaf types, both reacting to the same notice through polymorphism. </p>
+
+</div>
+</div>
+<a id="a6b1aa0dc895c9d4f4b97130e095a4b21" name="a6b1aa0dc895c9d4f4b97130e095a4b21"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6b1aa0dc895c9d4f4b97130e095a4b21">&#9670;&#160;</a></span>sd4_transferDemo()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void sd4_transferDemo </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>SD4 demo: minimal signature scenario. Two Composite levels, a mid-scenario ownership transfer, and <a class="el" href="classObserver.html" title="Receives notifications from a Subject it is registered with.">Observer</a> attach/detach around a single notification. </p>
 
 </div>
 </div>

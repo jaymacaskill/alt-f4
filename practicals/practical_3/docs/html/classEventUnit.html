@@ -103,15 +103,17 @@ Inheritance diagram for EventUnit:</div>
  <div class="center">
   <img src="classEventUnit.png" usemap="#EventUnit_map" alt=""/>
   <map id="EventUnit_map" name="EventUnit_map">
-<area href="classEventComponent.html" title="Common interface for every node in the EventFlow Composite tree." alt="EventComponent" shape="rect" coords="351,56,458,80"/>
-<area href="classObserver.html" title="Receives notifications from a Subject it is registered with." alt="Observer" shape="rect" coords="351,0,458,24"/>
-<area href="classArcadeRow.html" title="An arcade row with all of the arcade machines, contained in the retro corner." alt="ArcadeRow" shape="rect" coords="0,168,107,192"/>
-<area href="classDemoStation.html" title="A demo station for vendors, inside the vendor hall." alt="DemoStation" shape="rect" coords="117,168,224,192"/>
-<area href="classMainStage.html" title="The main stage inside the main hall." alt="MainStage" shape="rect" coords="234,168,341,192"/>
-<area href="classMerchStall.html" title="The merch stall inside the vendor hall." alt="MerchStall" shape="rect" coords="351,168,458,192"/>
-<area href="classQueue.html" title="The queue inside the tournament wing." alt="Queue" shape="rect" coords="468,168,575,192"/>
-<area href="classTicketGate.html" title="The ticket gate inside the main hall." alt="TicketGate" shape="rect" coords="585,168,692,192"/>
-<area href="classeSportsArena.html" title="An eSports arena for tournament hosting, contained in the tournament wing." alt="eSportsArena" shape="rect" coords="702,168,809,192"/>
+<area href="classEventComponent.html" title="Common interface for every node in the EventFlow Composite tree." alt="EventComponent" shape="rect" coords="0,56,107,80"/>
+<area href="classObserver.html" title="Receives notifications from a Subject it is registered with." alt="Observer" shape="rect" coords="0,0,107,24"/>
+<area href="classArcadeRow.html" title="An arcade row with all of the arcade machines, contained in the retro corner." alt="ArcadeRow" shape="rect" coords="117,168,224,192"/>
+<area href="classCosplayCorner.html" title="The best-dressed cosplay corner inside the main hall." alt="CosplayCorner" shape="rect" coords="117,224,224,248"/>
+<area href="classDemoStation.html" title="A demo station for vendors, inside the vendor hall." alt="DemoStation" shape="rect" coords="117,280,224,304"/>
+<area href="classMainStage.html" title="The main stage inside the main hall." alt="MainStage" shape="rect" coords="117,336,224,360"/>
+<area href="classMerchStall.html" title="The merch stall inside the vendor hall." alt="MerchStall" shape="rect" coords="117,392,224,416"/>
+<area href="classPinballAlley.html" title="An arcade row with all of the arcade machines, contained in the retro corner." alt="PinballAlley" shape="rect" coords="117,448,224,472"/>
+<area href="classQueue.html" title="The queue inside the tournament wing." alt="Queue" shape="rect" coords="117,504,224,528"/>
+<area href="classTicketGate.html" title="The ticket gate inside the main hall." alt="TicketGate" shape="rect" coords="117,560,224,584"/>
+<area href="classeSportsArena.html" title="An eSports arena for tournament hosting, contained in the tournament wing." alt="eSportsArena" shape="rect" coords="117,616,224,640"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -125,6 +127,8 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a4037686d2b5454ec6771a9684a0b234b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints the current state of this component.     <br /></td></tr>
 <tr class="memitem:a322c60fb4d1078fa5870db2fab7aef21" id="r_a322c60fb4d1078fa5870db2fab7aef21"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#a322c60fb4d1078fa5870db2fab7aef21">getCapacity</a> ()</td></tr>
 <tr class="memdesc:a322c60fb4d1078fa5870db2fab7aef21"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the capacity of the component.     <br /></td></tr>
+<tr class="memitem:a8e7fd572805fb5151dd9b3bed7d95f5e" id="r_a8e7fd572805fb5151dd9b3bed7d95f5e"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#a8e7fd572805fb5151dd9b3bed7d95f5e">getOccupancy</a> ()</td></tr>
+<tr class="memdesc:a8e7fd572805fb5151dd9b3bed7d95f5e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns how many people currently occupy this component, as opposed to <a class="el" href="#a322c60fb4d1078fa5870db2fab7aef21" title="Returns the capacity of the component.">getCapacity()</a> which returns how many it can hold at most.     <br /></td></tr>
 <tr class="memitem:ace23badd668627ccc8824f6b8e77cd85" id="r_ace23badd668627ccc8824f6b8e77cd85"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#ace23badd668627ccc8824f6b8e77cd85">admit</a> ()</td></tr>
 <tr class="memdesc:ace23badd668627ccc8824f6b8e77cd85"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function admits a customer into the unit and increments total capacity.  <br /></td></tr>
 <tr class="memitem:a04614091663ba4f20f7e251b24eefc45" id="r_a04614091663ba4f20f7e251b24eefc45"><td class="memItemLeft">virtual void&#160;</td><td class="memItemRight"><a class="el" href="#a04614091663ba4f20f7e251b24eefc45">open</a> ()=0</td></tr>
@@ -151,6 +155,8 @@ Protected Attributes</h2></td></tr>
 <tr class="inherit_header pro_attribs_classEventComponent"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pro_attribs_classEventComponent')"><span class="dynarrow"><span class="arrowhead closed"></span></span>Protected Attributes inherited from <a class="el" href="classEventComponent.html">EventComponent</a></td></tr>
 <tr class="memitem:a8678d8eed9fd1af14c411b94ba7ffda1 inherit pro_attribs_classEventComponent" id="r_a8678d8eed9fd1af14c411b94ba7ffda1"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="classEventComponent.html#a8678d8eed9fd1af14c411b94ba7ffda1">isOpen</a> = false</td></tr>
 <tr class="memdesc:a8678d8eed9fd1af14c411b94ba7ffda1 inherit pro_attribs_classEventComponent"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tells us whether this component is open.  <br /></td></tr>
+<tr class="memitem:a0e7697dc8b0e40f332e3558aeee0f84e inherit pro_attribs_classEventComponent" id="r_a0e7697dc8b0e40f332e3558aeee0f84e"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="classEventComponent.html#a0e7697dc8b0e40f332e3558aeee0f84e">powerAlert</a> = false</td></tr>
+<tr class="memitem:a76722d162c923eab98481a8398837fbd inherit pro_attribs_classEventComponent" id="r_a76722d162c923eab98481a8398837fbd"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="classEventComponent.html#a76722d162c923eab98481a8398837fbd">networkAlert</a> = false</td></tr>
 <tr class="memitem:aaf4da57b74a6ef84bc4fdc85b2a5176e inherit pro_attribs_classEventComponent" id="r_aaf4da57b74a6ef84bc4fdc85b2a5176e"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="classEventComponent.html#aaf4da57b74a6ef84bc4fdc85b2a5176e">total_capacity</a> = 0</td></tr>
 <tr class="memdesc:aaf4da57b74a6ef84bc4fdc85b2a5176e inherit pro_attribs_classEventComponent"><td class="mdescLeft">&#160;</td><td class="mdescRight">The total amount of customers currently inside this component.  <br /></td></tr>
 </table>
@@ -263,7 +269,7 @@ Protected Attributes</h2></td></tr>
 
 <p>Implements <a class="el" href="classEventComponent.html#a8e13a68d681c1b6affcf13435a09adab">EventComponent</a>.</p>
 
-<p>Implemented in <a class="el" href="classArcadeRow.html#a37257d1ab72cb0fdb5bc606a1c8e5d42">ArcadeRow</a>, <a class="el" href="classDemoStation.html#a15ff34e2587820f4f5637222b5a991ee">DemoStation</a>, <a class="el" href="classeSportsArena.html#a8311eed825c65f93594c183801d5c996">eSportsArena</a>, <a class="el" href="classMainStage.html#a3d5908bb634f4e97984ceb7eefab4aab">MainStage</a>, <a class="el" href="classMerchStall.html#a57de7a39cbb518186b14586d4199f9a3">MerchStall</a>, <a class="el" href="classQueue.html#ae52864d2a672ab331b0b770be9939bf5">Queue</a>, and <a class="el" href="classTicketGate.html#ac0570e6da9515d2c4ecafb71ecde6c76">TicketGate</a>.</p>
+<p>Implemented in <a class="el" href="classArcadeRow.html#a37257d1ab72cb0fdb5bc606a1c8e5d42">ArcadeRow</a>, <a class="el" href="classCosplayCorner.html#aed29a3429b29a83716a587a55120c27a">CosplayCorner</a>, <a class="el" href="classDemoStation.html#a15ff34e2587820f4f5637222b5a991ee">DemoStation</a>, <a class="el" href="classeSportsArena.html#a8311eed825c65f93594c183801d5c996">eSportsArena</a>, <a class="el" href="classMainStage.html#a3d5908bb634f4e97984ceb7eefab4aab">MainStage</a>, <a class="el" href="classMerchStall.html#a57de7a39cbb518186b14586d4199f9a3">MerchStall</a>, <a class="el" href="classPinballAlley.html#a71a13ad712a1692c61a919085dd280ac">PinballAlley</a>, <a class="el" href="classQueue.html#ae52864d2a672ab331b0b770be9939bf5">Queue</a>, and <a class="el" href="classTicketGate.html#ac0570e6da9515d2c4ecafb71ecde6c76">TicketGate</a>.</p>
 
 </div>
 </div>
@@ -345,6 +351,36 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a8e7fd572805fb5151dd9b3bed7d95f5e" name="a8e7fd572805fb5151dd9b3bed7d95f5e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8e7fd572805fb5151dd9b3bed7d95f5e">&#9670;&#160;</a></span>getOccupancy()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int EventUnit::getOccupancy </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns how many people currently occupy this component, as opposed to <a class="el" href="#a322c60fb4d1078fa5870db2fab7aef21" title="Returns the capacity of the component.">getCapacity()</a> which returns how many it can hold at most.    </p>
+<dl class="section return"><dt>Returns</dt><dd>For a leaf, its current occupancy. For a composite, the sum of its children's current occupancy.    </dd></dl>
+
+<p>Implements <a class="el" href="classEventComponent.html#a11ac78624079572c064417f818f5d444">EventComponent</a>.</p>
+
+</div>
+</div>
 <a id="a04614091663ba4f20f7e251b24eefc45" name="a04614091663ba4f20f7e251b24eefc45"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a04614091663ba4f20f7e251b24eefc45">&#9670;&#160;</a></span>open()</h2>
 
@@ -372,7 +408,7 @@ Protected Attributes</h2></td></tr>
 
 <p>Implements <a class="el" href="classEventComponent.html#ada5f41377769e0cbdaa7546477b3970c">EventComponent</a>.</p>
 
-<p>Implemented in <a class="el" href="classArcadeRow.html#af4fc8444ee40b4eca081d15315854921">ArcadeRow</a>, <a class="el" href="classDemoStation.html#af26051ff3ba4bfe12a03f626c6b7eb43">DemoStation</a>, <a class="el" href="classeSportsArena.html#a7efc15c3d8ff30110e8b2a01b11d1cde">eSportsArena</a>, <a class="el" href="classMainStage.html#a1ed4b3db2d97edc129fcebc06e052ff5">MainStage</a>, <a class="el" href="classMerchStall.html#a9a4390ffe674dae46c3cab885cadbef3">MerchStall</a>, <a class="el" href="classQueue.html#a4ce253323aaf27f29c0c9eb30f6ccb17">Queue</a>, and <a class="el" href="classTicketGate.html#a11f1b3e362457e0128672a1a48cc2431">TicketGate</a>.</p>
+<p>Implemented in <a class="el" href="classArcadeRow.html#af4fc8444ee40b4eca081d15315854921">ArcadeRow</a>, <a class="el" href="classCosplayCorner.html#afaa3bba6b2ebfbbee714fc2cd7112b3a">CosplayCorner</a>, <a class="el" href="classDemoStation.html#af26051ff3ba4bfe12a03f626c6b7eb43">DemoStation</a>, <a class="el" href="classeSportsArena.html#a7efc15c3d8ff30110e8b2a01b11d1cde">eSportsArena</a>, <a class="el" href="classMainStage.html#a1ed4b3db2d97edc129fcebc06e052ff5">MainStage</a>, <a class="el" href="classMerchStall.html#a9a4390ffe674dae46c3cab885cadbef3">MerchStall</a>, <a class="el" href="classPinballAlley.html#a64e072d1aba84080595ad3005b0cd79f">PinballAlley</a>, <a class="el" href="classQueue.html#a4ce253323aaf27f29c0c9eb30f6ccb17">Queue</a>, and <a class="el" href="classTicketGate.html#a11f1b3e362457e0128672a1a48cc2431">TicketGate</a>.</p>
 
 </div>
 </div>
@@ -439,7 +475,7 @@ Protected Attributes</h2></td></tr>
 
 <p>Implements <a class="el" href="classEventComponent.html#a6d5d61b0d2235db03974d5af21e4f376">EventComponent</a>.</p>
 
-<p>Implemented in <a class="el" href="classArcadeRow.html#afd4a94fcc09d77cab1fb49c688563bf2">ArcadeRow</a>, <a class="el" href="classDemoStation.html#a1cb8c3eadc3011d646f1fa7b9c0eb23b">DemoStation</a>, <a class="el" href="classeSportsArena.html#aa1f1ceb04479575d981f9e312b21577d">eSportsArena</a>, <a class="el" href="classMainStage.html#a24a5360006b0fa13e178570f79984b30">MainStage</a>, <a class="el" href="classMerchStall.html#a64d4f741970effe76bb338a19a5ed616">MerchStall</a>, <a class="el" href="classQueue.html#abdc89aee635b5ba1b486fccea60478af">Queue</a>, and <a class="el" href="classTicketGate.html#a02a406d2f42e6432274b418dc01930d8">TicketGate</a>.</p>
+<p>Implemented in <a class="el" href="classArcadeRow.html#afd4a94fcc09d77cab1fb49c688563bf2">ArcadeRow</a>, <a class="el" href="classCosplayCorner.html#a36805c03a31e6c884d481582c100d89d">CosplayCorner</a>, <a class="el" href="classDemoStation.html#a1cb8c3eadc3011d646f1fa7b9c0eb23b">DemoStation</a>, <a class="el" href="classeSportsArena.html#aa1f1ceb04479575d981f9e312b21577d">eSportsArena</a>, <a class="el" href="classMainStage.html#a24a5360006b0fa13e178570f79984b30">MainStage</a>, <a class="el" href="classMerchStall.html#a64d4f741970effe76bb338a19a5ed616">MerchStall</a>, <a class="el" href="classPinballAlley.html#aaa1bb5f6a17761b0c92d9decfc937a5e">PinballAlley</a>, <a class="el" href="classQueue.html#abdc89aee635b5ba1b486fccea60478af">Queue</a>, and <a class="el" href="classTicketGate.html#a02a406d2f42e6432274b418dc01930d8">TicketGate</a>.</p>
 
 </div>
 </div>

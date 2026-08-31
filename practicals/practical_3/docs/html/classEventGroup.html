@@ -103,14 +103,15 @@ Inheritance diagram for EventGroup:</div>
  <div class="center">
   <img src="classEventGroup.png" usemap="#EventGroup_map" alt=""/>
   <map id="EventGroup_map" name="EventGroup_map">
-<area href="classEventComponent.html" title="Common interface for every node in the EventFlow Composite tree." alt="EventComponent" shape="rect" coords="175,56,282,80"/>
-<area href="classSubject.html" title="Maintains a list of registered observers and broadcasts notices Subject is the Subject role in the Go..." alt="Subject" shape="rect" coords="292,56,399,80"/>
-<area href="classObserver.html" title="Receives notifications from a Subject it is registered with." alt="Observer" shape="rect" coords="175,0,282,24"/>
-<area href="classGameFest.html" title="Game Fest contains the main hall, the tournament wing and the vendor hall." alt="GameFest" shape="rect" coords="0,168,107,192"/>
-<area href="classMainHall.html" title="The main hall containing the main stage, the ticket gate and the retro corner of arcades." alt="MainHall" shape="rect" coords="117,168,224,192"/>
-<area href="classRetroCorner.html" title="Retro corner containing the arcade row, inside of the main hall." alt="RetroCorner" shape="rect" coords="234,168,341,192"/>
-<area href="classTournamentWing.html" title="Tournament wing contains the eSports arena and the queue." alt="TournamentWing" shape="rect" coords="351,168,458,192"/>
-<area href="classVendorHall.html" title="Vendor hall for different vendors&#39; merch sales and demonstration stations." alt="VendorHall" shape="rect" coords="468,168,575,192"/>
+<area href="classEventComponent.html" title="Common interface for every node in the EventFlow Composite tree." alt="EventComponent" shape="rect" coords="234,56,341,80"/>
+<area href="classSubject.html" title="Maintains a list of registered observers and broadcasts notices Subject is the Subject role in the Go..." alt="Subject" shape="rect" coords="351,56,458,80"/>
+<area href="classObserver.html" title="Receives notifications from a Subject it is registered with." alt="Observer" shape="rect" coords="234,0,341,24"/>
+<area href="classClassicGames.html" title="Classic games container containing the retro corner, inside of the main hall." alt="ClassicGames" shape="rect" coords="0,168,107,192"/>
+<area href="classGameFest.html" title="Game Fest contains the main hall, the tournament wing and the vendor hall." alt="GameFest" shape="rect" coords="117,168,224,192"/>
+<area href="classMainHall.html" title="The main hall containing the main stage, the ticket gate and the retro corner of arcades." alt="MainHall" shape="rect" coords="234,168,341,192"/>
+<area href="classRetroCorner.html" title="Retro corner containing the arcade row, inside of the classic games container." alt="RetroCorner" shape="rect" coords="351,168,458,192"/>
+<area href="classTournamentWing.html" title="Tournament wing contains the eSports arena and the queue." alt="TournamentWing" shape="rect" coords="468,168,575,192"/>
+<area href="classVendorHall.html" title="Vendor hall for different vendors&#39; merch sales and demonstration stations." alt="VendorHall" shape="rect" coords="585,168,692,192"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -118,8 +119,8 @@ Inheritance diagram for EventGroup:</div>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:aa7d228001d53fe1ad6d6ed374d438b55" id="r_aa7d228001d53fe1ad6d6ed374d438b55"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#aa7d228001d53fe1ad6d6ed374d438b55">EventGroup</a> (const string &amp;name)</td></tr>
 <tr class="memdesc:aa7d228001d53fe1ad6d6ed374d438b55"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for this event group.  <br /></td></tr>
-<tr class="memitem:ad3484c18ec03496216d11731b72048f9" id="r_ad3484c18ec03496216d11731b72048f9"><td class="memItemLeft">virtual&#160;</td><td class="memItemRight"><a class="el" href="#ad3484c18ec03496216d11731b72048f9">~EventGroup</a> ()</td></tr>
-<tr class="memdesc:ad3484c18ec03496216d11731b72048f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Polymorphic destructor, deletes its children as well, since it owns the children's lifetimes.  <br /></td></tr>
+<tr class="memitem:aec45fca847056b3ea8b62899c5903f55" id="r_aec45fca847056b3ea8b62899c5903f55"><td class="memItemLeft">virtual&#160;</td><td class="memItemRight"><a class="el" href="#aec45fca847056b3ea8b62899c5903f55">~EventGroup</a> ()</td></tr>
+<tr class="memdesc:aec45fca847056b3ea8b62899c5903f55"><td class="mdescLeft">&#160;</td><td class="mdescRight">Polymorphic destructor, deletes its children as well, since it owns the children's lifetimes.  <br /></td></tr>
 <tr class="memitem:a4c0f84ecca145a195c118c95507c0701" id="r_a4c0f84ecca145a195c118c95507c0701"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a4c0f84ecca145a195c118c95507c0701">add</a> (<a class="el" href="classEventComponent.html">EventComponent</a> *child)</td></tr>
 <tr class="memdesc:a4c0f84ecca145a195c118c95507c0701"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a new child for this group to own.  <br /></td></tr>
 <tr class="memitem:afbfb1a8490e9b2ab0ddcd79341d1a817" id="r_afbfb1a8490e9b2ab0ddcd79341d1a817"><td class="memItemLeft"><a class="el" href="classEventComponent.html">EventComponent</a> *&#160;</td><td class="memItemRight"><a class="el" href="#afbfb1a8490e9b2ab0ddcd79341d1a817">remove</a> (<a class="el" href="classEventComponent.html">EventComponent</a> *child)</td></tr>
@@ -132,6 +133,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a72347eae01acc686f960dc95f85497f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calls <a class="el" href="#a72347eae01acc686f960dc95f85497f1" title="Calls reportStatus() on all children objects.">reportStatus()</a> on all children objects.  <br /></td></tr>
 <tr class="memitem:a09a32f623f3caf9acc120b5dcea09c5f" id="r_a09a32f623f3caf9acc120b5dcea09c5f"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#a09a32f623f3caf9acc120b5dcea09c5f">getCapacity</a> ()</td></tr>
 <tr class="memdesc:a09a32f623f3caf9acc120b5dcea09c5f"><td class="mdescLeft">&#160;</td><td class="mdescRight">The total capacity of this component.  <br /></td></tr>
+<tr class="memitem:ae3192aeb1a2b430eac46e99b80448d87" id="r_ae3192aeb1a2b430eac46e99b80448d87"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#ae3192aeb1a2b430eac46e99b80448d87">getOccupancy</a> ()</td></tr>
+<tr class="memdesc:ae3192aeb1a2b430eac46e99b80448d87"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns how many people currently occupy this component, as opposed to <a class="el" href="#a09a32f623f3caf9acc120b5dcea09c5f" title="The total capacity of this component.">getCapacity()</a> which returns how many it can hold at most.  <br /></td></tr>
+<tr class="memitem:a762f4bce98e24c0313cc289b65d409ae" id="r_a762f4bce98e24c0313cc289b65d409ae"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a762f4bce98e24c0313cc289b65d409ae">checkCapacity</a> (int threshold)</td></tr>
+<tr class="memdesc:a762f4bce98e24c0313cc289b65d409ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">gets the aggregate occupancy across everything the group owns  <br /></td></tr>
 <tr class="memitem:a2898704661f5b41c47f08b6eafddcf37" id="r_a2898704661f5b41c47f08b6eafddcf37"><td class="memItemLeft">const string &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a2898704661f5b41c47f08b6eafddcf37">getName</a> () override</td></tr>
 <tr class="memdesc:a2898704661f5b41c47f08b6eafddcf37"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getter for the name of the component.     <br /></td></tr>
 <tr class="memitem:afff87efdf9614645a9a63d01e0bab7b0" id="r_afff87efdf9614645a9a63d01e0bab7b0"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#afff87efdf9614645a9a63d01e0bab7b0">update</a> (<a class="el" href="structNotice.html">Notice</a> &amp;notice)</td></tr>
@@ -159,15 +164,17 @@ Additional Inherited Members</h2></td></tr>
 <tr class="inherit_header pro_attribs_classEventComponent"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pro_attribs_classEventComponent')"><span class="dynarrow"><span class="arrowhead closed"></span></span>Protected Attributes inherited from <a class="el" href="classEventComponent.html">EventComponent</a></td></tr>
 <tr class="memitem:a8678d8eed9fd1af14c411b94ba7ffda1 inherit pro_attribs_classEventComponent" id="r_a8678d8eed9fd1af14c411b94ba7ffda1"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="classEventComponent.html#a8678d8eed9fd1af14c411b94ba7ffda1">isOpen</a> = false</td></tr>
 <tr class="memdesc:a8678d8eed9fd1af14c411b94ba7ffda1 inherit pro_attribs_classEventComponent"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tells us whether this component is open.  <br /></td></tr>
+<tr class="memitem:a0e7697dc8b0e40f332e3558aeee0f84e inherit pro_attribs_classEventComponent" id="r_a0e7697dc8b0e40f332e3558aeee0f84e"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="classEventComponent.html#a0e7697dc8b0e40f332e3558aeee0f84e">powerAlert</a> = false</td></tr>
+<tr class="memitem:a76722d162c923eab98481a8398837fbd inherit pro_attribs_classEventComponent" id="r_a76722d162c923eab98481a8398837fbd"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="classEventComponent.html#a76722d162c923eab98481a8398837fbd">networkAlert</a> = false</td></tr>
 <tr class="memitem:aaf4da57b74a6ef84bc4fdc85b2a5176e inherit pro_attribs_classEventComponent" id="r_aaf4da57b74a6ef84bc4fdc85b2a5176e"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="classEventComponent.html#aaf4da57b74a6ef84bc4fdc85b2a5176e">total_capacity</a> = 0</td></tr>
 <tr class="memdesc:aaf4da57b74a6ef84bc4fdc85b2a5176e inherit pro_attribs_classEventComponent"><td class="mdescLeft">&#160;</td><td class="mdescRight">The total amount of customers currently inside this component.  <br /></td></tr>
 <tr class="inherit_header pro_attribs_classSubject"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pro_attribs_classSubject')"><span class="dynarrow"><span class="arrowhead closed"></span></span>Protected Attributes inherited from <a class="el" href="classSubject.html">Subject</a></td></tr>
 <tr class="memitem:a6cc32583498471c05a3ee7cedfa497c8 inherit pro_attribs_classSubject" id="r_a6cc32583498471c05a3ee7cedfa497c8"><td class="memItemLeft">vector&lt; <a class="el" href="classObserver.html">Observer</a> * &gt;&#160;</td><td class="memItemRight"><a class="el" href="classSubject.html#a6cc32583498471c05a3ee7cedfa497c8">observers</a></td></tr>
-<tr class="memdesc:a6cc32583498471c05a3ee7cedfa497c8 inherit pro_attribs_classSubject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-owning pointers to currently registered observers.  <br /></td></tr>
+<tr class="memdesc:a6cc32583498471c05a3ee7cedfa497c8 inherit pro_attribs_classSubject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non owning pointers to currently registered observers.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A composite grouping of EventComponents (e.g. the main hall). </p>
-<p><a class="el" href="classEventGroup.html" title="A composite grouping of EventComponents (e.g. the main hall).">EventGroup</a> is the Composite role in the Composite pattern and participates in <a class="el" href="classObserver.html" title="Receives notifications from a Subject it is registered with.">Observer</a> in two distinct roles: as an <a class="el" href="classObserver.html" title="Receives notifications from a Subject it is registered with.">Observer</a>, it receives notices from the <a class="el" href="classSubject.html" title="Maintains a list of registered observers and broadcasts notices Subject is the Subject role in the Go...">Subject</a> it is registered with (parent or <a class="el" href="classControlDesk.html" title="Concrete Subject acting as the event&#39;s central control point.">ControlDesk</a>); as a <a class="el" href="classSubject.html" title="Maintains a list of registered observers and broadcasts notices Subject is the Subject role in the Go...">Subject</a>, it re-broadcasts notices to its own children, producing the cascading notification required across the event tree </p>
+<p><a class="el" href="classEventGroup.html" title="A composite grouping of EventComponents (e.g. the main hall).">EventGroup</a> is the Composite role in the Composite pattern and participates in <a class="el" href="classObserver.html" title="Receives notifications from a Subject it is registered with.">Observer</a> in two distinct roles: as an <a class="el" href="classObserver.html" title="Receives notifications from a Subject it is registered with.">Observer</a>, it receives notices from the <a class="el" href="classSubject.html" title="Maintains a list of registered observers and broadcasts notices Subject is the Subject role in the Go...">Subject</a> it is registered with (parent or <a class="el" href="classControlDesk.html" title="Concrete Subject acting as the event&#39;s central control point.">ControlDesk</a>), as a <a class="el" href="classSubject.html" title="Maintains a list of registered observers and broadcasts notices Subject is the Subject role in the Go...">Subject</a>, it rebroadcasts notices to its own children, producing the cascading notification required across the event tree </p>
 </div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="aa7d228001d53fe1ad6d6ed374d438b55" name="aa7d228001d53fe1ad6d6ed374d438b55"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa7d228001d53fe1ad6d6ed374d438b55">&#9670;&#160;</a></span>EventGroup()</h2>
@@ -202,8 +209,8 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
-<a id="ad3484c18ec03496216d11731b72048f9" name="ad3484c18ec03496216d11731b72048f9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad3484c18ec03496216d11731b72048f9">&#9670;&#160;</a></span>~EventGroup()</h2>
+<a id="aec45fca847056b3ea8b62899c5903f55" name="aec45fca847056b3ea8b62899c5903f55"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aec45fca847056b3ea8b62899c5903f55">&#9670;&#160;</a></span>~EventGroup()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -212,7 +219,7 @@ Additional Inherited Members</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual EventGroup::~EventGroup </td>
+          <td class="memname">EventGroup::~EventGroup </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -252,6 +259,26 @@ Additional Inherited Members</h2></td></tr>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="a762f4bce98e24c0313cc289b65d409ae" name="a762f4bce98e24c0313cc289b65d409ae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a762f4bce98e24c0313cc289b65d409ae">&#9670;&#160;</a></span>checkCapacity()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void EventGroup::checkCapacity </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>threshold</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>gets the aggregate occupancy across everything the group owns </p>
+<dl class="section return"><dt>Returns</dt><dd>can implement for leaves cuz they are not Subjects, so they cant call notify </dd></dl>
 
 </div>
 </div>
@@ -341,6 +368,36 @@ Additional Inherited Members</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>The name of this component    </dd></dl>
 
 <p>Implements <a class="el" href="classEventComponent.html#a436681933d0c8219992135ed3e5d7ffc">EventComponent</a>.</p>
+
+</div>
+</div>
+<a id="ae3192aeb1a2b430eac46e99b80448d87" name="ae3192aeb1a2b430eac46e99b80448d87"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae3192aeb1a2b430eac46e99b80448d87">&#9670;&#160;</a></span>getOccupancy()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int EventGroup::getOccupancy </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns how many people currently occupy this component, as opposed to <a class="el" href="#a09a32f623f3caf9acc120b5dcea09c5f" title="The total capacity of this component.">getCapacity()</a> which returns how many it can hold at most. </p>
+<dl class="section return"><dt>Returns</dt><dd>For a composite(EventGroup), the sum of its children's current occupancy. </dd></dl>
+
+<p>Implements <a class="el" href="classEventComponent.html#a11ac78624079572c064417f818f5d444">EventComponent</a>.</p>
 
 </div>
 </div>

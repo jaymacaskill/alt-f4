@@ -1,4 +1,14 @@
 var searchData=
 [
-  ['update_0',['update',['../classArcadeRow.html#afd4a94fcc09d77cab1fb49c688563bf2',1,'ArcadeRow::update()'],['../classDemoStation.html#a1cb8c3eadc3011d646f1fa7b9c0eb23b',1,'DemoStation::update()'],['../classeSportsArena.html#aa1f1ceb04479575d981f9e312b21577d',1,'eSportsArena::update()'],['../classEventComponent.html#a6d5d61b0d2235db03974d5af21e4f376',1,'EventComponent::update()'],['../classEventGroup.html#afff87efdf9614645a9a63d01e0bab7b0',1,'EventGroup::update()'],['../classEventUnit.html#ac055eb6d208588dd163e9ff084a06be8',1,'EventUnit::update()'],['../classMainStage.html#a24a5360006b0fa13e178570f79984b30',1,'MainStage::update()'],['../classMerchStall.html#a64d4f741970effe76bb338a19a5ed616',1,'MerchStall::update()'],['../classObserver.html#a8d65c6ee51c12d9004a86a63b63fa2f8',1,'Observer::update()'],['../classQueue.html#abdc89aee635b5ba1b486fccea60478af',1,'Queue::update()'],['../classTicketGate.html#a02a406d2f42e6432274b418dc01930d8',1,'TicketGate::update()']]]
+  ['ticketgate_0',['TicketGate',['../classTicketGate.html',1,'TicketGate'],['../classTicketGate.html#aeeee2076f67c274071c490aa9596d866',1,'TicketGate::TicketGate()']]],
+  ['ticketgate_2ecpp_1',['TicketGate.cpp',['../TicketGate_8cpp.html',1,'']]],
+  ['ticketgate_2eh_2',['TicketGate.h',['../TicketGate_8h.html',1,'']]],
+  ['ticketgate_5fcpp_3',['TICKETGATE_CPP',['../TicketGate_8cpp.html#adcd96cc9a482c8dfb9b9898a4ef12a87',1,'TicketGate.cpp']]],
+  ['total_5fcapacity_4',['total_capacity',['../classEventComponent.html#aaf4da57b74a6ef84bc4fdc85b2a5176e',1,'EventComponent']]],
+  ['tournamentwing_5',['TournamentWing',['../classTournamentWing.html',1,'TournamentWing'],['../classTournamentWing.html#a919fc15573a4cfe4f0b25a06bad9a91a',1,'TournamentWing::TournamentWing()']]],
+  ['tournamentwing_2ecpp_6',['TournamentWing.cpp',['../TournamentWing_8cpp.html',1,'']]],
+  ['tournamentwing_2eh_7',['TournamentWing.h',['../TournamentWing_8h.html',1,'']]],
+  ['tournamentwing_5fcpp_8',['TOURNAMENTWING_CPP',['../TournamentWing_8cpp.html#aea3a9bfc1f74ef01574fb40621b430ba',1,'TournamentWing.cpp']]],
+  ['transfer_9',['transfer',['../classEventGroup.html#a1746ce8be4991ea1c84229952ead2755',1,'EventGroup']]],
+  ['type_10',['type',['../structNotice.html#ae2f875d6153cefbd8baaadcf4d6cdc88',1,'Notice']]]
 ];

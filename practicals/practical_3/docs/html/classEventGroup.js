@@ -1,11 +1,13 @@
 var classEventGroup =
 [
     [ "EventGroup", "classEventGroup.html#aa7d228001d53fe1ad6d6ed374d438b55", null ],
-    [ "~EventGroup", "classEventGroup.html#ad3484c18ec03496216d11731b72048f9", null ],
+    [ "~EventGroup", "classEventGroup.html#aec45fca847056b3ea8b62899c5903f55", null ],
     [ "add", "classEventGroup.html#a4c0f84ecca145a195c118c95507c0701", null ],
+    [ "checkCapacity", "classEventGroup.html#a762f4bce98e24c0313cc289b65d409ae", null ],
     [ "close", "classEventGroup.html#a998ff5d5a8e43215d476129f82de957d", null ],
     [ "getCapacity", "classEventGroup.html#a09a32f623f3caf9acc120b5dcea09c5f", null ],
     [ "getName", "classEventGroup.html#a2898704661f5b41c47f08b6eafddcf37", null ],
+    [ "getOccupancy", "classEventGroup.html#ae3192aeb1a2b430eac46e99b80448d87", null ],
     [ "open", "classEventGroup.html#aee7ba9a1ed7933cfc94182ceecae865e", null ],
     [ "remove", "classEventGroup.html#afbfb1a8490e9b2ab0ddcd79341d1a817", null ],
     [ "reportStatus", "classEventGroup.html#a72347eae01acc686f960dc95f85497f1", null ],

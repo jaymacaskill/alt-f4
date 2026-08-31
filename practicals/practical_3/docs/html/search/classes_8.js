@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['queue_0',['Queue',['../classQueue.html',1,'']]]
+  ['pinballalley_0',['PinballAlley',['../classPinballAlley.html',1,'']]]
 ];
