@@ -101,6 +101,14 @@ void Queue::update(Notice& notice)
 				networkAlert = false;
 			}
 			break;
+
+		case CAPACITY_ALERT:
+			if (this->isOpen)
+			{
+				cout << "The tournament queue is full and will pause new entries until numbers drop.\n";
+				this->close();
+			}
+			break;
 	}
 }
 

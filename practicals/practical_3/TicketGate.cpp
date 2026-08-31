@@ -101,6 +101,14 @@ void TicketGate::update(Notice& notice)
 				networkAlert = false;
 			}
 			break;
+		
+		case CAPACITY_ALERT:
+			if (this->isOpen)
+			{
+				cout << "The Ticket Gate is at capacity and will pause admissions until numbers drop.\n";
+				this->close();
+			}
+			break;
 	}
 }
 
