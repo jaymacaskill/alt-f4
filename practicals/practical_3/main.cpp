@@ -83,7 +83,7 @@ void anonymous_example()
 }
 
 /**
- * @brief SD3 demo: a small power-failure scenario.
+ * @brief SD2 demo: a small power-failure scenario.
  * One Composite group with two different concrete leaf types,
  * both reacting to the same notice through polymorphism.
  */
