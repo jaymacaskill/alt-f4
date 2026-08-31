@@ -37,10 +37,13 @@ type-checking.
 ```
 GameFest
 ├── Main Hall
-│   ├── Retro Corner
-│   │   └── Arcade Row
+│   ├── Classic Games
+│   │   └── Retro Corner
+│   │       ├── Arcade Row
+│   │       └── Pinball Alley
 │   ├── Ticket Gate
-│   └── Main Stage
+│   ├── Main Stage
+│   └── Cosplay Corner
 ├── Tournament Wing
 │   ├── Tournament Queue
 │   └── eSports Arena
