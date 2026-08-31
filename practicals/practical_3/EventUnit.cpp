@@ -38,7 +38,7 @@ EventUnit::EventUnit(const string& name, int capacity)
 void EventUnit::reportStatus()
 {
 	if (this->isOpen)
-		cout << this->name << ": OPEN (" << this->total_capacity << " /" << this->capacity << " capacity)\n";
+		cout << this->name << ": OPEN (" << this->total_capacity << "/" << this->capacity << " capacity)\n";
 	else cout << this->name << ": CLOSED\n";
 }
 
