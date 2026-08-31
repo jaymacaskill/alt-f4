@@ -51,7 +51,7 @@ class DemoStation : public EventUnit
 		void update(Notice& notice) override;
 
 	protected:
-		bool offlineMode = false; //Whether demonstrations are offline or not
+		bool offlineMode = false; /**< Whether demonstrations are offline or not */
 };
 
 #endif // DEMOSTATION_H

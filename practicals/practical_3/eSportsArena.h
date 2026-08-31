@@ -51,7 +51,7 @@ class eSportsArena : public EventUnit
 		 */
 		void update(Notice& notice) override;
 
-	//=====LIVE TOURNAMENT=====
+	// ===== LIVE TOURNAMENT ==== //
 	//public:
 		/**
 		 * @brief Adds a player to the match
@@ -80,8 +80,8 @@ class eSportsArena : public EventUnit
 		void clearArena();
 
 	private:
-		vector<string> currentPlayers; //Vector of the current players
-		string champion; //The champion currently
+		vector<string> currentPlayers; /**< Vector of the current players */
+		string champion; /**< The champion currently */
 };
 
 #endif // ESPORTSARENA_H
