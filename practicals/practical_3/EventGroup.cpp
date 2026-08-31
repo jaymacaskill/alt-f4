@@ -99,8 +99,13 @@ void EventGroup::close()
 
 void EventGroup::reportStatus()
 {
-	// TODO - implement EventGroup::reportStatus
-	throw "Not yet implemented";
+	cout << this->name << ": " << (this->isOpen ? "OPEN" : "CLOSED")
+	    << " (" << this->getCapacity() << " total capacity)\n";
+
+	for (EventComponent* child : children)
+	{
+		child->reportStatus(); //gives report status for each child
+	}
 }
 
 int EventGroup::getCapacity()
