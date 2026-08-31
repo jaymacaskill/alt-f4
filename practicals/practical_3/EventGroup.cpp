@@ -88,12 +88,12 @@ void EventGroup::open()
 
 void EventGroup::close()
 {
-	cout << this->name << " is now open.\n";
-	this->isOpen = true;
+	cout << this->name << " is now closed.\n";
+	this->isOpen = false;
 
 	for (EventComponent* child : children)
 	{
-		child->open();
+		child->close();
 	}
 }
 
