@@ -17,5 +17,6 @@
 
 using namespace std;
 
+ClassicGames::ClassicGames() : EventGroup("Classic Games") { } // calls the parent/EventGroup constructor in init list
 
 #endif // CLASSICGAMES_H
