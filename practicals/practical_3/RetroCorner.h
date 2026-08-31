@@ -3,7 +3,7 @@
 // Jay Macaskill (25198387)
 
 // COS 214 (Software Modelling) Practical 3
-// Last Modified: 28 August 2026
+// Last Modified: 31 August 2026
 
 // RetroCorner.h
 
@@ -19,7 +19,7 @@ using namespace std;
 class EventGroup;
 
 /**
- * @brief Retro corner containing the arcade row, inside of the main hall
+ * @brief Retro corner containing the arcade row, inside of the classic games container
  */
 class RetroCorner : public EventGroup
 {
