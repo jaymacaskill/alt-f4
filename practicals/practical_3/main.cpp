@@ -3,7 +3,7 @@
 // Jay Macaskill (25198387)
 
 // COS 214 (Software Modelling) Practical 3
-// Last Modified: 30 August 2026
+// Last Modified: 31 August 2026
 
 // main.cpp
 
@@ -18,6 +18,8 @@
 #include "TicketGate.h"
 #include "RetroCorner.h"
 #include "ArcadeRow.h"
+#include "PinballAlley.h"
+#include "ClassicGames.h"
 
 #include "TournamentWing.h"
 #include "eSportsArena.h"
@@ -75,83 +77,9 @@ void anonymous_example()
 // but so we can call functions on objects, we do not use this approach for the demo
 }
 
-/**
- * @brief SD3 demo: a small power-failure scenario.
- * One Composite group with two different concrete leaf types,
- * both reacting to the same notice through polymorphism.
- */
-void sd3_powerAlertDemo()
-{
-    MainStage* stage  = new MainStage("Main Stage", 10);
-    ArcadeRow* arcade = new ArcadeRow("Arcade Row", 10);
-
-    MainHall* hall = new MainHall();
-    hall->add(stage);
-    hall->add(arcade);
-
-    ControlDesk* desk = new ControlDesk();
-    desk->attach(hall);
-
-    stage->open();
-    arcade->open();
-
-    Notice alert;
-    alert.type = POWER_ALERT;
-    alert.message = "Power alert";
-    desk->issueNotice(alert);
-
-    Notice stable;
-    stable.type = POWER_STABILISED;
-    stable.message = "Power stabilised";
-    desk->issueNotice(stable);
-
-    desk->detach(hall);
-    delete hall;
-    delete desk;
-}
-
-/**
- * @brief SD4 demo: minimal signature scenario.
- * Two Composite levels, a mid-scenario ownership transfer,
- * and Observer attach/detach around a single notification.
- */
-void sd4_transferDemo()
-{
-    MerchStall* stall = new MerchStall("Test Stall", 5);
-
-    VendorHall* origin      = new VendorHall();
-    origin->add(stall);
-
-    MainHall* destination   = new MainHall();
-
-    GameFest* root = new GameFest();
-    root->add(origin);
-    root->add(destination);
-
-    ControlDesk* desk = new ControlDesk();
-    desk->attach(root);
-
-    // reassignment mid-scenario
-    origin->transfer(destination, stall);
-
-    Notice close;
-    close.type = VENDOR_CLOSE;
-    close.message = "Vendors closing";
-    desk->issueNotice(close);
-
-    desk->detach(root);
-
-    delete root;
-    delete desk;
-}
-
 int main()
 {
-    cout << "===== TEST FUNCTIONS =====\n";
     anonymous_example();
-    sd3_powerAlertDemo();
-    sd4_transferDemo();
-    cout << "===== END OF TEST FUNCTIONS =====\n";
 
     // === CREATE EVENT (with small capacities) === //
 
@@ -168,13 +96,21 @@ int main()
     DemoStation* mortal_kombat = new DemoStation("Mortal Kombat", 8);
     DemoStation* paralives = new DemoStation("Paralives", 5);
 
+    // --- Leaves (Level 4) ---
+    PinballAlley* pinball_alley = new PinballAlley("Pinball Alley", 6);
+
     // --- Sub-areas (Level 3) ---
     RetroCorner* retro_corner = new RetroCorner;
         retro_corner->add(arcade_row);
+        retro_corner->add(pinball_alley);
 
-    // --- Halls/Wings (Level 2) ---
+    // --- Sub-areas (Level 2) ---
+    ClassicGames* classic_games = new ClassicGames;
+        classic_games->add(retro_corner);
+
+    // --- Halls/Wings (Level 1) ---
     MainHall* main_hall = new MainHall;
-        main_hall->add(retro_corner);
+        main_hall->add(classic_games);
         main_hall->add(ticket_gate);
         main_hall->add(main_stage);
 
@@ -238,10 +174,11 @@ int main()
     ticket_gate->admit();
     ticket_gate->admit();
     ticket_gate->admit();
+    ticket_gate->admit();
 
     ticket_gate->reportStatus();
 
-    cout << "\n🚪 Ten people are let through..." << endl;
+    cout << "\n🚪 11 people are let through..." << endl;
 
     ticket_gate->dismiss();
     ticket_gate->dismiss();
@@ -253,8 +190,10 @@ int main()
     ticket_gate->dismiss();
     ticket_gate->dismiss();
     ticket_gate->dismiss();
+    ticket_gate->dismiss();
+    ticket_gate->dismiss();
 
-    cout << "\n😴 Everyone has been let in, but a sleepy worker accidentally let in 11 people..." << endl;
+    cout << "\n😴 Everyone has been let in, but a sleepy worker accidentally let in 12 people..." << endl;
     ticket_gate->dismiss();
 
     // ==== MAIN HALL ==== //
@@ -265,6 +204,7 @@ int main()
     main_stage->admit();
     main_stage->admit();
     arcade_row->admit();
+    pinball_alley->admit();
 
     // ==== VENDOR HALL ==== //
 
