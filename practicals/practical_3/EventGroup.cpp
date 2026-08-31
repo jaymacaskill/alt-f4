@@ -143,7 +143,7 @@ void EventGroup::checkCapacity(int threshold) {
 		alert.type = CAPACITY_ALERT;
 
 		alert.message = this->name + " has reached its capacity threshold.";
-		this->notify(alert);
+		this->notify(alert); // will reach each childs 'update(notice)', its a cascading pattern triggered by this condition/if-statement
 	}
 	else
 	{

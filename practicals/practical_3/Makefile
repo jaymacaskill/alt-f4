@@ -11,7 +11,7 @@ CXX = g++
 CXXFLAGS = -std=c++11 -Wall -Wextra -g
 TARGET = eventflow
 
-SOURCES = main.cpp EventComponent.cpp EventUnit.cpp EventGroup.cpp Subject.cpp Observer.cpp ControlDesk.cpp GameFest.cpp MainHall.cpp MainStage.cpp TicketGate.cpp RetroCorner.cpp ArcadeRow.cpp TournamentWing.cpp Queue.cpp eSportsArena.cpp VendorHall.cpp MerchStall.cpp DemoStation.cpp
+SOURCES = main.cpp EventComponent.cpp EventUnit.cpp EventGroup.cpp Subject.cpp Observer.cpp ControlDesk.cpp GameFest.cpp MainHall.cpp MainStage.cpp TicketGate.cpp RetroCorner.cpp ArcadeRow.cpp TournamentWing.cpp Queue.cpp eSportsArena.cpp VendorHall.cpp MerchStall.cpp DemoStation.cpp CosplayCorner.cpp
 
 OBJECTS = $(SOURCES:.cpp=.o)
 
