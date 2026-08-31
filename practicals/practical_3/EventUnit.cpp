@@ -47,7 +47,7 @@ bool EventUnit::admit()
 	isFull = total_capacity >= capacity; // Just to be safe, in case a venue for some reason has capacity 0
 	if (isFull || !isOpen)
 	{
-			cout << "Sorry! We couldn't admit you right now.";
+			cout << "Sorry! We couldn't admit you right now.\n";
 			return false;
 	}
 
@@ -58,9 +58,9 @@ bool EventUnit::admit()
 
 void EventUnit::dismiss()
 {
-	if (this->capacity <= 0)
+	if (this->total_capacity <= 0)
 	{
-		cout << "There is no one here to dismiss.";
+		cout << "There is no one here to dismiss.\n";
 		return;
 	}
 	total_capacity --;

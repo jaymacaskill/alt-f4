@@ -162,7 +162,8 @@ void EventGroup::update(Notice& notice)
 			break;
 
 		case CLOSE:
-		//do nothing, event is closed
+			this->isOpen = false;
+			break;
 		
 		case EVACUATE:
 			this->isOpen = false;
