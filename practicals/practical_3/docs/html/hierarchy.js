@@ -4,6 +4,7 @@ var hierarchy =
     [ "Observer", "classObserver.html", [
       [ "EventComponent", "classEventComponent.html", [
         [ "EventGroup", "classEventGroup.html", [
+          [ "ClassicGames", "classClassicGames.html", null ],
           [ "GameFest", "classGameFest.html", null ],
           [ "MainHall", "classMainHall.html", null ],
           [ "RetroCorner", "classRetroCorner.html", null ],
@@ -12,9 +13,11 @@ var hierarchy =
         ] ],
         [ "EventUnit", "classEventUnit.html", [
           [ "ArcadeRow", "classArcadeRow.html", null ],
+          [ "CosplayCorner", "classCosplayCorner.html", null ],
           [ "DemoStation", "classDemoStation.html", null ],
           [ "MainStage", "classMainStage.html", null ],
           [ "MerchStall", "classMerchStall.html", null ],
+          [ "PinballAlley", "classPinballAlley.html", null ],
           [ "Queue", "classQueue.html", null ],
           [ "TicketGate", "classTicketGate.html", null ],
           [ "eSportsArena", "classeSportsArena.html", null ]

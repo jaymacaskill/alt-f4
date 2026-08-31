@@ -128,6 +128,8 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a4037686d2b5454ec6771a9684a0b234b inherit pub_methods_classEventUnit"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints the current state of this component.     <br /></td></tr>
 <tr class="memitem:a322c60fb4d1078fa5870db2fab7aef21 inherit pub_methods_classEventUnit" id="r_a322c60fb4d1078fa5870db2fab7aef21"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="classEventUnit.html#a322c60fb4d1078fa5870db2fab7aef21">getCapacity</a> ()</td></tr>
 <tr class="memdesc:a322c60fb4d1078fa5870db2fab7aef21 inherit pub_methods_classEventUnit"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the capacity of the component.     <br /></td></tr>
+<tr class="memitem:a8e7fd572805fb5151dd9b3bed7d95f5e inherit pub_methods_classEventUnit" id="r_a8e7fd572805fb5151dd9b3bed7d95f5e"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="classEventUnit.html#a8e7fd572805fb5151dd9b3bed7d95f5e">getOccupancy</a> ()</td></tr>
+<tr class="memdesc:a8e7fd572805fb5151dd9b3bed7d95f5e inherit pub_methods_classEventUnit"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns how many people currently occupy this component, as opposed to <a class="el" href="classEventUnit.html#a322c60fb4d1078fa5870db2fab7aef21" title="Returns the capacity of the component.">getCapacity()</a> which returns how many it can hold at most.     <br /></td></tr>
 <tr class="memitem:ace23badd668627ccc8824f6b8e77cd85 inherit pub_methods_classEventUnit" id="r_ace23badd668627ccc8824f6b8e77cd85"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="classEventUnit.html#ace23badd668627ccc8824f6b8e77cd85">admit</a> ()</td></tr>
 <tr class="memdesc:ace23badd668627ccc8824f6b8e77cd85 inherit pub_methods_classEventUnit"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function admits a customer into the unit and increments total capacity.  <br /></td></tr>
 <tr class="memitem:a535ae3f4257f4a39e26fc486e49dc028 inherit pub_methods_classEventUnit" id="r_a535ae3f4257f4a39e26fc486e49dc028"><td class="memItemLeft">const string &amp;&#160;</td><td class="memItemRight"><a class="el" href="classEventUnit.html#a535ae3f4257f4a39e26fc486e49dc028">getName</a> () override</td></tr>
@@ -142,7 +144,7 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-attribs" class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:aee38cee9bfdff705bfdd72c8b613a5c4" id="r_aee38cee9bfdff705bfdd72c8b613a5c4"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#aee38cee9bfdff705bfdd72c8b613a5c4">cashOnly</a> = true</td></tr>
+<tr class="memitem:aee38cee9bfdff705bfdd72c8b613a5c4" id="r_aee38cee9bfdff705bfdd72c8b613a5c4"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#aee38cee9bfdff705bfdd72c8b613a5c4">cashOnly</a> = false</td></tr>
 <tr class="memdesc:aee38cee9bfdff705bfdd72c8b613a5c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Shows whether the stall is doing cash only operations.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-inherited" class="groupheader"><a id="inherited" name="inherited"></a>
@@ -154,6 +156,8 @@ Additional Inherited Members</h2></td></tr>
 <tr class="inherit_header pro_attribs_classEventComponent"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pro_attribs_classEventComponent')"><span class="dynarrow"><span class="arrowhead closed"></span></span>Protected Attributes inherited from <a class="el" href="classEventComponent.html">EventComponent</a></td></tr>
 <tr class="memitem:a8678d8eed9fd1af14c411b94ba7ffda1 inherit pro_attribs_classEventComponent" id="r_a8678d8eed9fd1af14c411b94ba7ffda1"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="classEventComponent.html#a8678d8eed9fd1af14c411b94ba7ffda1">isOpen</a> = false</td></tr>
 <tr class="memdesc:a8678d8eed9fd1af14c411b94ba7ffda1 inherit pro_attribs_classEventComponent"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tells us whether this component is open.  <br /></td></tr>
+<tr class="memitem:a0e7697dc8b0e40f332e3558aeee0f84e inherit pro_attribs_classEventComponent" id="r_a0e7697dc8b0e40f332e3558aeee0f84e"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="classEventComponent.html#a0e7697dc8b0e40f332e3558aeee0f84e">powerAlert</a> = false</td></tr>
+<tr class="memitem:a76722d162c923eab98481a8398837fbd inherit pro_attribs_classEventComponent" id="r_a76722d162c923eab98481a8398837fbd"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="classEventComponent.html#a76722d162c923eab98481a8398837fbd">networkAlert</a> = false</td></tr>
 <tr class="memitem:aaf4da57b74a6ef84bc4fdc85b2a5176e inherit pro_attribs_classEventComponent" id="r_aaf4da57b74a6ef84bc4fdc85b2a5176e"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="classEventComponent.html#aaf4da57b74a6ef84bc4fdc85b2a5176e">total_capacity</a> = 0</td></tr>
 <tr class="memdesc:aaf4da57b74a6ef84bc4fdc85b2a5176e inherit pro_attribs_classEventComponent"><td class="mdescLeft">&#160;</td><td class="mdescRight">The total amount of customers currently inside this component.  <br /></td></tr>
 </table>
@@ -293,7 +297,7 @@ Additional Inherited Members</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool MerchStall::cashOnly = true</td>
+          <td class="memname">bool MerchStall::cashOnly = false</td>
         </tr>
       </table>
 </div><div class="memdoc">

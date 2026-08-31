@@ -7,6 +7,7 @@ var classEventUnit =
     [ "dismiss", "classEventUnit.html#ab9c114c5c46b29abb926d064c9d53a15", null ],
     [ "getCapacity", "classEventUnit.html#a322c60fb4d1078fa5870db2fab7aef21", null ],
     [ "getName", "classEventUnit.html#a535ae3f4257f4a39e26fc486e49dc028", null ],
+    [ "getOccupancy", "classEventUnit.html#a8e7fd572805fb5151dd9b3bed7d95f5e", null ],
     [ "open", "classEventUnit.html#a04614091663ba4f20f7e251b24eefc45", null ],
     [ "reportStatus", "classEventUnit.html#a4037686d2b5454ec6771a9684a0b234b", null ],
     [ "update", "classEventUnit.html#ac055eb6d208588dd163e9ff084a06be8", null ],

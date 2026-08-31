@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['vendorhall_0',['VendorHall',['../classVendorHall.html',1,'']]]
+  ['ticketgate_0',['TicketGate',['../classTicketGate.html',1,'']]],
+  ['tournamentwing_1',['TournamentWing',['../classTournamentWing.html',1,'']]]
 ];

@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['update_0',['update',['../classArcadeRow.html#afd4a94fcc09d77cab1fb49c688563bf2',1,'ArcadeRow::update()'],['../classDemoStation.html#a1cb8c3eadc3011d646f1fa7b9c0eb23b',1,'DemoStation::update()'],['../classeSportsArena.html#aa1f1ceb04479575d981f9e312b21577d',1,'eSportsArena::update()'],['../classEventComponent.html#a6d5d61b0d2235db03974d5af21e4f376',1,'EventComponent::update()'],['../classEventGroup.html#afff87efdf9614645a9a63d01e0bab7b0',1,'EventGroup::update()'],['../classEventUnit.html#ac055eb6d208588dd163e9ff084a06be8',1,'EventUnit::update()'],['../classMainStage.html#a24a5360006b0fa13e178570f79984b30',1,'MainStage::update()'],['../classMerchStall.html#a64d4f741970effe76bb338a19a5ed616',1,'MerchStall::update()'],['../classObserver.html#a8d65c6ee51c12d9004a86a63b63fa2f8',1,'Observer::update()'],['../classQueue.html#abdc89aee635b5ba1b486fccea60478af',1,'Queue::update()'],['../classTicketGate.html#a02a406d2f42e6432274b418dc01930d8',1,'TicketGate::update()']]]
+  ['sd2_5fpoweralertdemo_0',['sd2_powerAlertDemo',['../main_8cpp.html#a39a61ce76f86b744674fe1f8f1e54506',1,'main.cpp']]],
+  ['sd4_5ftransferdemo_1',['sd4_transferDemo',['../main_8cpp.html#a6b1aa0dc895c9d4f4b97130e095a4b21',1,'main.cpp']]],
+  ['size_2',['size',['../classQueue.html#a718803e822635006c843fc28e08041f0',1,'Queue']]]
 ];

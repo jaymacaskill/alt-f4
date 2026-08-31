@@ -1,7 +1,9 @@
 var annotated_dup =
 [
     [ "ArcadeRow", "classArcadeRow.html", "classArcadeRow" ],
+    [ "ClassicGames", "classClassicGames.html", "classClassicGames" ],
     [ "ControlDesk", "classControlDesk.html", "classControlDesk" ],
+    [ "CosplayCorner", "classCosplayCorner.html", "classCosplayCorner" ],
     [ "DemoStation", "classDemoStation.html", "classDemoStation" ],
     [ "eSportsArena", "classeSportsArena.html", "classeSportsArena" ],
     [ "EventComponent", "classEventComponent.html", "classEventComponent" ],
@@ -13,6 +15,7 @@ var annotated_dup =
     [ "MerchStall", "classMerchStall.html", "classMerchStall" ],
     [ "Notice", "structNotice.html", "structNotice" ],
     [ "Observer", "classObserver.html", "classObserver" ],
+    [ "PinballAlley", "classPinballAlley.html", "classPinballAlley" ],
     [ "Queue", "classQueue.html", "classQueue" ],
     [ "RetroCorner", "classRetroCorner.html", "classRetroCorner" ],
     [ "Subject", "classSubject.html", "classSubject" ],

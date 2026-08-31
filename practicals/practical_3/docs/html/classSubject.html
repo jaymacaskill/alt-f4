@@ -104,12 +104,13 @@ Inheritance diagram for Subject:</div>
   <img src="classSubject.png" usemap="#Subject_map" alt=""/>
   <map id="Subject_map" name="Subject_map">
 <area href="classControlDesk.html" title="Concrete Subject acting as the event&#39;s central control point." alt="ControlDesk" shape="rect" coords="0,56,106,80"/>
-<area href="classEventGroup.html" title="A composite grouping of EventComponents (e.g. the main hall)." alt="EventGroup" shape="rect" coords="232,56,338,80"/>
-<area href="classGameFest.html" title="Game Fest contains the main hall, the tournament wing and the vendor hall." alt="GameFest" shape="rect" coords="0,112,106,136"/>
-<area href="classMainHall.html" title="The main hall containing the main stage, the ticket gate and the retro corner of arcades." alt="MainHall" shape="rect" coords="116,112,222,136"/>
-<area href="classRetroCorner.html" title="Retro corner containing the arcade row, inside of the main hall." alt="RetroCorner" shape="rect" coords="232,112,338,136"/>
-<area href="classTournamentWing.html" title="Tournament wing contains the eSports arena and the queue." alt="TournamentWing" shape="rect" coords="348,112,454,136"/>
-<area href="classVendorHall.html" title="Vendor hall for different vendors&#39; merch sales and demonstration stations." alt="VendorHall" shape="rect" coords="464,112,570,136"/>
+<area href="classEventGroup.html" title="A composite grouping of EventComponents (e.g. the main hall)." alt="EventGroup" shape="rect" coords="290,56,396,80"/>
+<area href="classClassicGames.html" title="Classic games container containing the retro corner, inside of the main hall." alt="ClassicGames" shape="rect" coords="0,112,106,136"/>
+<area href="classGameFest.html" title="Game Fest contains the main hall, the tournament wing and the vendor hall." alt="GameFest" shape="rect" coords="116,112,222,136"/>
+<area href="classMainHall.html" title="The main hall containing the main stage, the ticket gate and the retro corner of arcades." alt="MainHall" shape="rect" coords="232,112,338,136"/>
+<area href="classRetroCorner.html" title="Retro corner containing the arcade row, inside of the classic games container." alt="RetroCorner" shape="rect" coords="348,112,454,136"/>
+<area href="classTournamentWing.html" title="Tournament wing contains the eSports arena and the queue." alt="TournamentWing" shape="rect" coords="464,112,570,136"/>
+<area href="classVendorHall.html" title="Vendor hall for different vendors&#39; merch sales and demonstration stations." alt="VendorHall" shape="rect" coords="580,112,686,136"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -127,7 +128,7 @@ Public Member Functions</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 id="header-pro-attribs" class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
 <tr class="memitem:a6cc32583498471c05a3ee7cedfa497c8" id="r_a6cc32583498471c05a3ee7cedfa497c8"><td class="memItemLeft">vector&lt; <a class="el" href="classObserver.html">Observer</a> * &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a6cc32583498471c05a3ee7cedfa497c8">observers</a></td></tr>
-<tr class="memdesc:a6cc32583498471c05a3ee7cedfa497c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-owning pointers to currently registered observers.  <br /></td></tr>
+<tr class="memdesc:a6cc32583498471c05a3ee7cedfa497c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non owning pointers to currently registered observers.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Maintains a list of registered observers and broadcasts notices <a class="el" href="classSubject.html" title="Maintains a list of registered observers and broadcasts notices Subject is the Subject role in the Go...">Subject</a> is the <a class="el" href="classSubject.html" title="Maintains a list of registered observers and broadcasts notices Subject is the Subject role in the Go...">Subject</a> role in the GoF <a class="el" href="classObserver.html" title="Receives notifications from a Subject it is registered with.">Observer</a> pattern. This <a class="el" href="classSubject.html" title="Maintains a list of registered observers and broadcasts notices Subject is the Subject role in the Go...">Subject</a> stores non-owning pointers: Observers must remain alive while registered and are responsible for detaching themselves before own destruction. </p>
@@ -186,7 +187,7 @@ Protected Attributes</h2></td></tr>
 <p>Registers an observer for future notifications If the observer is already registered, nothing should happen to avoid duplicate notifications. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">observer</td><td><a class="el" href="classObserver.html" title="Receives notifications from a Subject it is registered with.">Observer</a> to registered. May not be nullptr (perform null check) </td></tr>
+    <tr><td class="paramname">observer</td><td><a class="el" href="classObserver.html" title="Receives notifications from a Subject it is registered with.">Observer</a> to registered. we do a nullcheck to prevent nullptr </td></tr>
   </table>
   </dd>
 </dl>
@@ -281,7 +282,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Non-owning pointers to currently registered observers. </p>
+<p>Non owning pointers to currently registered observers. </p>
 
 </div>
 </div>

@@ -6,6 +6,7 @@ var Notice_8h =
       [ "CLOSE", "Notice_8h.html#af363a9693a3fb910ac7c54199a89c570a685f73194ad125cbc784c3210cdb3449", null ],
       [ "POWER_ALERT", "Notice_8h.html#af363a9693a3fb910ac7c54199a89c570a10f835c4f86daea85205154ded55cd97", null ],
       [ "POWER_STABILISED", "Notice_8h.html#af363a9693a3fb910ac7c54199a89c570a6b7e61b999cac9361a7d7e72044877b7", null ],
+      [ "CAPACITY_ALERT", "Notice_8h.html#af363a9693a3fb910ac7c54199a89c570a66be1970ce9bb5f1af1aab7ba597b1a0", null ],
       [ "EVACUATE", "Notice_8h.html#af363a9693a3fb910ac7c54199a89c570a780769e0ba373c33bedce64d15a93337", null ],
       [ "SECURITY_ANNOUNCEMENT", "Notice_8h.html#af363a9693a3fb910ac7c54199a89c570ace215191e0bde8f1df9430e16f15161b", null ],
       [ "LOST_PERSON", "Notice_8h.html#af363a9693a3fb910ac7c54199a89c570a6d3c78c6d3be21a4c78c0223ed707699", null ],

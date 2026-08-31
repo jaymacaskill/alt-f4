@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['retrocorner_0',['RetroCorner',['../classRetroCorner.html',1,'']]]
+  ['queue_0',['Queue',['../classQueue.html',1,'']]]
 ];
