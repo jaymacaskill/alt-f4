@@ -321,7 +321,7 @@ int main()
     // ==== TICKET GATE: Admit/Dismiss ==== //
 
     cout << "\n===== " << ticket_gate->getName() << " =====\n";
-    cout << "🎟️ Ten people have arrived at the ticket gate." << endl;
+    cout << "🎟️ 11 people have arrived at the ticket gate." << endl;
 
     ticket_gate->admit();
     ticket_gate->admit();
@@ -337,9 +337,6 @@ int main()
 
     ticket_gate->reportStatus();
 
-    cout << "\n🚪 11 people are let through..." << endl;
-
-    ticket_gate->dismiss();
     ticket_gate->dismiss();
     ticket_gate->dismiss();
     ticket_gate->dismiss();
