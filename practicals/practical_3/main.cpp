@@ -83,6 +83,42 @@ void anonymous_example()
 }
 
 /**
+ * @brief SD3 demo: a minimal, single-branch cascade (no sibling fan-out at any
+ * level) so every update()/notify() step gets its own lifeline and the true
+ * call order is fully visible - update() runs its own state change, then
+ * calls notify() on itself, and that notify() is what sends update() on to
+ * the next object down the chain.
+ */
+void sd3_cascadeDemo()
+{
+    ArcadeRow* arcade = new ArcadeRow("Arcade Row", 5);
+
+    RetroCorner* retro = new RetroCorner();
+    retro->add(arcade);
+
+    ClassicGames* classic = new ClassicGames();
+    classic->add(retro);
+
+    MainHall* hall = new MainHall();
+    hall->add(classic);
+
+    GameFest* fest = new GameFest();
+    fest->add(hall);
+
+    ControlDesk* desk = new ControlDesk();
+    desk->attach(fest);
+
+    Notice open;
+    open.type = OPEN;
+    open.message = "Open the festival!";
+    desk->issueNotice(open);
+
+    desk->detach(fest);
+    delete fest;
+    delete desk;
+}
+
+/**
  * @brief SD2 demo: a small power-failure scenario.
  * One Composite group with two different concrete leaf types,
  * both reacting to the same notice through polymorphism.
@@ -242,6 +278,7 @@ int main()
     cout << "===== TEST FUNCTIONS =====\n";
     anonymous_example();
     sd2_powerAlertDemo();
+    sd3_cascadeDemo();
     sd4_transferDemo();
     eventGroupTests();
     cout << "===== END OF TEST FUNCTIONS =====\n";
