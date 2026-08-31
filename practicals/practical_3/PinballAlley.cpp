@@ -79,6 +79,9 @@ void PinballAlley::update(Notice& notice)
 		case NETWORK_RESTORED:
 			break;
 
+		case CAPACITY_ALERT:
+			break; //no capacity behaviour
+
 		case SECURITY_ANNOUNCEMENT:
 			break;
 
