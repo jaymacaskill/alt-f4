@@ -3,7 +3,7 @@
 // Jay Macaskill (25198387)
 
 // COS 214 (Software Modelling) Practical 3
-// Last Modified: 30 August 2026
+// Last Modified: 31 August 2026
 
 // Subject.cpp
 
@@ -69,8 +69,9 @@ void Subject::detach(Observer* observer)
 // push function, push everything an observer needs to know, which is inside 'notice'
 void Subject::notify(Notice& notice)
 {
-    // loop over all observers and all update(notice) on all of them, in registr order
-	for(Observer* observer : observers)
+    vector<Observer*> snapshot = observers;
+	// loop over all observers and all update(notice) on all of them, in registr order
+	for(Observer* observer : snapshot)
 	{
 		observer->update(notice);
 	}
