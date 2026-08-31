@@ -51,8 +51,7 @@ class Queue : public EventUnit
 		 */
 		void update(Notice& notice) override;
 
-// ===== LIVE TOURNAMENT ====== //
-	// public:
+//===== LIVE TOURNAMENT ======
 
 		/**
 		 * @brief Adds a player into the queue
@@ -90,7 +89,7 @@ class Queue : public EventUnit
 		string removePlayer();
 
 	private:
-		vector<string> players; /**< The vector of players */
+		vector<string> players; //The vector of players
 
 };
 

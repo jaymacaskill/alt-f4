@@ -19,7 +19,10 @@
 
 using namespace std;
 
-Queue::Queue(const string& name, int capacity) : EventUnit(name, capacity) { } 
+Queue::Queue(const string& name, int capacity) : EventUnit(name, capacity)
+{
+
+} 
 
 void Queue::open()
 {
@@ -42,7 +45,8 @@ void Queue::update(Notice& notice)
 			break;
 
 		case CLOSE:
-			if (this->isOpen) this->close();
+			if (this->isOpen)
+				this->close();
 			break;
 
 		case POWER_ALERT:
@@ -123,7 +127,8 @@ pair<string, string> Queue::getNextTwo()
 
 string Queue::removePlayer()
 {
-	if(players.empty()) return "";
+	if(players.empty())
+		return "";
 
 	string name = players.front();
 	players.erase(players.begin());
@@ -135,12 +140,12 @@ string Queue::removePlayer()
 }
 
 bool Queue::isEmpty() const 
-{ 
+{
 	return players.empty(); 
 }
 
-int Queue::size() const { 
-	
+int Queue::size() const
+{
 	return players.size(); 
 }
 

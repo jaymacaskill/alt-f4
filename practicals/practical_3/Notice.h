@@ -19,16 +19,16 @@ using namespace std;
  */
 enum NoticeType
 {
-	OPEN, /**< An area or unit should open */
-	CLOSE, /**< An area or unit should close */
-	POWER_ALERT, /**< A power-related safety concern */
-	POWER_STABILISED, /** < An alert given to stabilise the power */
-	EVACUATE, /**< The vicinity needs to be evacuated */
-	SECURITY_ANNOUNCEMENT, /**< For any announcements brought forward by security e.g. parked car with windows down*/
-	LOST_PERSON, /**< To make stage announcement for any missing persons */
-	VENDOR_CLOSE, /**< Close the vendor hall */
-	NETWORK_ERROR, /**< Network failure */
-	NETWORK_RESTORED /**< An alert given once network has been restored */
+	OPEN, //An area or unit should open
+	CLOSE, //An area or unit should close
+	POWER_ALERT, //A power-related safety concern
+	POWER_STABILISED, //An alert given to stabilise the power
+	EVACUATE, //The vicinity needs to be evacuated
+	SECURITY_ANNOUNCEMENT, //For any announcements brought forward by security e.g. parked car with windows down
+	LOST_PERSON, //To make stage announcement for any missing persons
+	VENDOR_CLOSE, //Close the vendor hall
+	NETWORK_ERROR, //Network failure
+	NETWORK_RESTORED //An alert given once network has been restored
 };
 
 /**
@@ -39,8 +39,8 @@ enum NoticeType
  */
 struct Notice
 {
-	NoticeType type; /**< The notice type */
-	string message; /**< The accompanying message for the notice */
+	NoticeType type; //The notice type
+	string message; //The accompanying message for the notice
 };
 
 #endif // NOTICE_H

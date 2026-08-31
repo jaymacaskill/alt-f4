@@ -17,6 +17,9 @@
 
 using namespace std;
 
-TournamentWing::TournamentWing() : EventGroup ("Tournament Wing") { }
+TournamentWing::TournamentWing() : EventGroup ("Tournament Wing")
+{
+    
+}
 
 #endif // TOURNAMENTWING_CPP

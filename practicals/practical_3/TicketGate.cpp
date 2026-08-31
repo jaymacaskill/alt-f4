@@ -18,7 +18,10 @@
 
 using namespace std;
 
-TicketGate::TicketGate(const string& name, int capacity) : EventUnit(name, capacity) { }
+TicketGate::TicketGate(const string& name, int capacity) : EventUnit(name, capacity)
+{
+
+}
 
 void TicketGate::open()
 {
@@ -41,7 +44,8 @@ void TicketGate::update(Notice& notice)
 			break;
 
 		case CLOSE:
-			if (this->isOpen) this->close();
+			if (this->isOpen)
+				this->close();
 			break;
 
 		case POWER_ALERT:

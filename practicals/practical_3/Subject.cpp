@@ -19,7 +19,10 @@
 
 using namespace std;
 
-Subject::~Subject() { }
+Subject::~Subject()
+{
+	
+}
 
 void Subject::attach(Observer* observer)
 {
@@ -30,8 +33,8 @@ void Subject::attach(Observer* observer)
 
 	for(Observer* exist : observers) // we check for dupes, so observer can never register more than once
 	{
-		if (exist == observer){
-
+		if (exist == observer)
+		{
 			return; // do nothing if we found a dupe
 		}
 	}
@@ -45,8 +48,8 @@ void Subject::attach(Observer* observer)
 
 void Subject::detach(Observer* observer)
 {
-	if (observer == nullptr) { // null check
-
+	if (observer == nullptr)// null check
+	{
 		return;
 	}
 

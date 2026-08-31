@@ -17,6 +17,9 @@
 
 using namespace std;
 
-Observer::~Observer() { }
+Observer::~Observer()
+{
+    
+}
 
 #endif // OBSERVER_CPP

@@ -18,7 +18,10 @@
 
 using namespace std;
 
-MerchStall::MerchStall(const string& name, int capacity) : EventUnit(name, capacity) { } 
+MerchStall::MerchStall(const string& name, int capacity) : EventUnit(name, capacity)
+{
+
+} 
 
 void MerchStall::open()
 {
@@ -41,7 +44,8 @@ void MerchStall::update(Notice& notice)
 			break;
 
 		case CLOSE:
-			if (this->isOpen) this->close();
+			if (this->isOpen)
+				this->close();
 			break;
 
 		case POWER_ALERT:

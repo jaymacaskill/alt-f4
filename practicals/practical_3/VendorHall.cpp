@@ -17,6 +17,9 @@
 
 using namespace std;
 
-VendorHall::VendorHall() : EventGroup ("Vendor Hall") { }
+VendorHall::VendorHall() : EventGroup ("Vendor Hall")
+{
+    
+}
 
 #endif // VENDORHALL_CPP

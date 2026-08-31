@@ -17,6 +17,9 @@
 
 using namespace std;
 
-RetroCorner::RetroCorner() : EventGroup("Retro Corner") { }
+RetroCorner::RetroCorner() : EventGroup("Retro Corner")
+{
+    
+}
 
 #endif // RETROCORNER_H
