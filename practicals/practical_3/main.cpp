@@ -87,7 +87,7 @@ void anonymous_example()
  * One Composite group with two different concrete leaf types,
  * both reacting to the same notice through polymorphism.
  */
-void sd3_powerAlertDemo()
+void sd2_powerAlertDemo()
 {
     MainStage* stage  = new MainStage("Main Stage", 10);
     ArcadeRow* arcade = new ArcadeRow("Arcade Row", 10);
@@ -125,11 +125,13 @@ void sd3_powerAlertDemo()
 void sd4_transferDemo()
 {
     MerchStall* stall = new MerchStall("Test Stall", 5);
+    TicketGate* gate  = new TicketGate("Test Gate", 10);
 
     VendorHall* origin      = new VendorHall();
     origin->add(stall);
 
     MainHall* destination   = new MainHall();
+    destination->add(gate);
 
     GameFest* root = new GameFest();
     root->add(origin);
@@ -137,6 +139,10 @@ void sd4_transferDemo()
 
     ControlDesk* desk = new ControlDesk();
     desk->attach(root);
+    desk->attach(root);
+
+    stall->open();
+    gate->open();
 
     // reassignment mid-scenario
     origin->transfer(destination, stall);
@@ -235,7 +241,7 @@ int main()
 
     cout << "===== TEST FUNCTIONS =====\n";
     anonymous_example();
-    sd3_powerAlertDemo();
+    sd2_powerAlertDemo();
     sd4_transferDemo();
     eventGroupTests();
     cout << "===== END OF TEST FUNCTIONS =====\n";
