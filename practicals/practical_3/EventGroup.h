@@ -87,6 +87,11 @@ class EventGroup : public EventComponent, public Subject
 		*/
 		int getOccupancy();
 
+		/** 
+		 @brief  gets the aggregate occupancy across everything the group owns
+		 @return can implement for leaves cuz they are not Subjects, so they cant call notify
+		*/
+		void checkCapacity(int threshold); 
 
 		/// @copydoc EventComponent::getName
 		const string& getName() override;

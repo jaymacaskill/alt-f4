@@ -133,6 +133,25 @@ int EventGroup::getOccupancy()
 	return total;
 }
 
+void EventGroup::checkCapacity(int threshold) {
+
+	if (this->getOccupancy() >= threshold)
+	{
+		cout << this->name << " has reached its capacity threshold (" << this->getOccupancy() << "/" << threshold << ") and is raising a capacity alert.\n";
+
+		Notice alert;
+		alert.type = CAPACITY_ALERT;
+
+		alert.message = this->name + " has reached its capacity threshold.";
+		this->notify(alert);
+	}
+	else
+	{
+		cout << this->name << " is within its capacity threshold (" << this->getOccupancy() << "/" << threshold << ").\n";
+	}
+
+}
+
 void EventGroup::update(Notice& notice)
 {
 	// Track this group's own state
