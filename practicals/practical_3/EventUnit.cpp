@@ -73,4 +73,9 @@ int EventUnit::getCapacity()
 	return this->capacity;
 }
 
+int EventUnit::getOccupancy()
+{
+	return this->total_capacity;
+}
+
 #endif // EVENTUNIT_CPP

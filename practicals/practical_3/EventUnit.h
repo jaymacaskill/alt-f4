@@ -46,6 +46,9 @@ class EventUnit : public EventComponent
 		/// @copydoc EventComponent::getCapacity
 		int getCapacity();
 
+		/// @copydoc EventComponent::getOccupancy
+		int getOccupancy();
+
 		/**
 		 * @brief This function admits a customer into the unit and increments total capacity
 		 * @return Tells us whether or not we successfully admitted the customer

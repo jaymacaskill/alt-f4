@@ -80,6 +80,9 @@ class EventGroup : public EventComponent, public Subject
 		 */
 		int getCapacity();
 
+		int getOccupancy();
+
+
 		/// @copydoc EventComponent::getName
 		const string& getName() override;
 

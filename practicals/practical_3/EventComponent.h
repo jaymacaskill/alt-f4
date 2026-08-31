@@ -60,6 +60,14 @@ class EventComponent : public Observer
 		virtual int getCapacity() = 0;
 
 		/**
+		* @brief Returns how many people currently occupy this component, as
+		* opposed to getCapacity() which returns how many it can hold at most.
+		* @return For a leaf, its current occupancy. For a composite, the sum
+		* of its children's current occupancy.
+		*/
+		virtual int getOccupancy() = 0;
+
+		/**
 		 * @brief Update function to be implemented in children classes, since components are observers
 		 */
 		virtual void update(Notice& notice) = 0;
