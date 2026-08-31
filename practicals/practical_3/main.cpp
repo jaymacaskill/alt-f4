@@ -40,6 +40,8 @@
 #include <vector>
 #include <cstdlib>
 #include <ctime>
+#include <cassert>
+#include <sstream>
 
 using namespace std;
 
@@ -80,12 +82,163 @@ void anonymous_example()
 // but so we can call functions on objects, we do not use this approach for the demo
 }
 
+/**
+ * @brief SD3 demo: a small power-failure scenario.
+ * One Composite group with two different concrete leaf types,
+ * both reacting to the same notice through polymorphism.
+ */
+void sd3_powerAlertDemo()
+{
+    MainStage* stage  = new MainStage("Main Stage", 10);
+    ArcadeRow* arcade = new ArcadeRow("Arcade Row", 10);
+
+    MainHall* hall = new MainHall();
+    hall->add(stage);
+    hall->add(arcade);
+
+    ControlDesk* desk = new ControlDesk();
+    desk->attach(hall);
+
+    stage->open();
+    arcade->open();
+
+    Notice alert;
+    alert.type = POWER_ALERT;
+    alert.message = "Power alert";
+    desk->issueNotice(alert);
+
+    Notice stable;
+    stable.type = POWER_STABILISED;
+    stable.message = "Power stabilised";
+    desk->issueNotice(stable);
+
+    desk->detach(hall);
+    delete hall;
+    delete desk;
+}
+
+/**
+ * @brief SD4 demo: minimal signature scenario.
+ * Two Composite levels, a mid-scenario ownership transfer,
+ * and Observer attach/detach around a single notification.
+ */
+void sd4_transferDemo()
+{
+    MerchStall* stall = new MerchStall("Test Stall", 5);
+
+    VendorHall* origin      = new VendorHall();
+    origin->add(stall);
+
+    MainHall* destination   = new MainHall();
+
+    GameFest* root = new GameFest();
+    root->add(origin);
+    root->add(destination);
+
+    ControlDesk* desk = new ControlDesk();
+    desk->attach(root);
+
+    // reassignment mid-scenario
+    origin->transfer(destination, stall);
+
+    Notice close;
+    close.type = VENDOR_CLOSE;
+    close.message = "Vendors closing";
+    desk->issueNotice(close);
+
+    desk->detach(root);
+
+    delete root;
+    delete desk;
+}
+
+/**
+ * @brief Extra assert-based tests targeting EventGroup specifically: the
+ * duplicate-add guard, a safe remove() of an unowned component, getOccupancy()'s
+ * recursion across two Composite levels, and both branches of checkCapacity() -
+ * including proof that the CAPACITY_ALERT it raises really cascades through
+ * Observer into a leaf's own update(), not just an EventGroup print statement.
+ */
+void eventGroupTests()
+{
+    // --- add(): duplicate guard must not double-own the same child ---
+    MainHall* group = new MainHall();
+    ArcadeRow* leaf = new ArcadeRow("Test Arcade Row", 5);
+
+    group->add(leaf);
+    group->add(leaf); // deliberately add the same pointer twice
+    assert(group->getCapacity() == 5); // if the guard failed, this would be 10 (double-counted)
+
+    // --- remove(): safe no-op when the component isn't owned by this group ---
+    ArcadeRow* stranger = new ArcadeRow("Unowned Arcade Row", 8);
+    EventComponent* removed = group->remove(stranger);
+    assert(removed == nullptr); // never owned, so nothing should be returned
+    assert(group->getCapacity() == 5); // group's capacity must be unaffected
+    delete stranger; // never owned by anyone, so we clean it up ourselves
+
+    delete group; // also deletes leaf, the one real owned child
+
+    // --- getOccupancy(): must recurse correctly across two Composite levels ---
+    MainStage* stage_a = new MainStage("Stage A", 10);
+    MainStage* stage_b = new MainStage("Stage B", 10);
+    stage_a->open();
+    stage_b->open();
+    stage_a->admit();
+    stage_a->admit();
+    stage_b->admit();
+
+    MainHall* inner = new MainHall();
+    inner->add(stage_a);
+    inner->add(stage_b);
+
+    TicketGate* gate = new TicketGate("Test Gate", 10);
+    gate->open();
+    gate->admit();
+
+    MainHall* outer = new MainHall();
+    outer->add(inner);
+    outer->add(gate);
+
+    assert(inner->getOccupancy() == 3); // 2 + 1 across the two stages
+    assert(outer->getOccupancy() == 4); // + 1 more from the gate, one level up
+
+    // --- checkCapacity(): the false branch, no alert should be raised ---
+    ostringstream capture;
+    streambuf* old_buf = cout.rdbuf(capture.rdbuf());
+
+    outer->checkCapacity(10); // occupancy (4) < threshold (10)
+
+    cout.rdbuf(old_buf);
+    assert(capture.str().find("within its capacity threshold") != string::npos);
+    assert(capture.str().find("capacity alert") == string::npos);
+
+    // --- checkCapacity(): the true branch, and proof it really cascades ---
+    gate->admit(); // outer's occupancy is now 5 (3 from inner + 2 from gate)
+
+    capture.str("");
+    old_buf = cout.rdbuf(capture.rdbuf());
+
+    outer->checkCapacity(5); // occupancy (5) >= threshold (5)
+
+    cout.rdbuf(old_buf);
+    assert(capture.str().find("capacity alert") != string::npos);
+    assert(capture.str().find("The Ticket Gate is at capacity") != string::npos); // proves the notify() cascade reached the leaf's own update(), not just an EventGroup message
+
+    delete outer; // cascades: deletes inner (which deletes stage_a, stage_b) and gate
+
+    cout << "EventGroup tests passed.\n";
+}
+
 int main()
 {
     srand(time(nullptr)); // seed RNG once, before anything else (used by eSportsArena and CosplayCorner)
 
     cout << "===== TEST FUNCTIONS =====\n";
     anonymous_example();
+    sd3_powerAlertDemo();
+    sd4_transferDemo();
+    eventGroupTests();
+    cout << "===== END OF TEST FUNCTIONS =====\n";
 
     // === CREATE EVENT (with small capacities) === //
 
@@ -104,10 +257,7 @@ int main()
     DemoStation* mortal_kombat = new DemoStation("Mortal Kombat", 8);
     DemoStation* paralives = new DemoStation("Paralives", 5);
 
-    // --- Leaves (Level 4) ---
-    PinballAlley* pinball_alley = new PinballAlley("Pinball Alley", 6);
-
-    // --- Sub-areas (Level 3) ---
+    // --- Sub-areas (Level 4) ---
     RetroCorner* retro_corner = new RetroCorner;
         retro_corner->add(arcade_row);
         retro_corner->add(pinball_alley);
@@ -116,7 +266,7 @@ int main()
     ClassicGames* classic_games = new ClassicGames;
         classic_games->add(retro_corner);
 
-    // --- Halls/Wings (Level 1) ---
+    // --- Halls/Wings (Level 2) ---
     MainHall* main_hall = new MainHall;
         main_hall->add(classic_games);
         main_hall->add(ticket_gate);
@@ -230,7 +380,7 @@ int main()
 
     // testing checkCapacity() which is from SD3
     cout << "\n📊 Checking whether the Main Hall is nearing capacity..." << endl;
-    main_hall->checkCapacity(3); // occupancy is 3 (2 at Main Stage, 1 at Arcade Row) then triggers CAPACITY_ALERT
+    main_hall->checkCapacity(3); // occupancy is 4 (2 at Main Stage, 1 at Arcade Row, 1 at Pinball Alley) -> triggers CAPACITY_ALERT
 
     // ==== VENDOR HALL ==== //
 
