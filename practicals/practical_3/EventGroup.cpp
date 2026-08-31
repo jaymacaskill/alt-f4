@@ -3,7 +3,7 @@
 // Jay Macaskill (25198387)
 
 // COS 214 (Software Modelling) Practical 3
-// Last Modified: 29 August 2026
+// Last Modified: 31 August 2026
 
 // EventGroup.cpp
 
@@ -27,8 +27,8 @@ EventGroup::EventGroup(const string& name) : Subject() // is also a subject, don
 
 void EventGroup::add(EventComponent* child)
 {
-	if (child == nullptr){
-
+	if (child == nullptr)
+	{
 		return;
 	}
 
@@ -43,8 +43,6 @@ void EventGroup::add(EventComponent* child)
 
 	// Observer side
 	this->attach(child); // every child added to the group is auto registered to hear the groups notices
-
-
 }
 
 const string& EventGroup::getName()
@@ -55,8 +53,8 @@ const string& EventGroup::getName()
 // doesnt destrow the child, only detach it
 EventComponent* EventGroup::remove(EventComponent* child)
 {
-	if (child == nullptr) {
-
+	if (child == nullptr)
+	{
 		return nullptr;
 	}
 
@@ -128,6 +126,5 @@ EventGroup::~EventGroup()
 
 	children.clear();
 }
-
 
 #endif // EVENTGROUP_CPP

@@ -27,7 +27,7 @@ class Subject;
  * 
  * EventGroup is the Composite role in the Composite pattern and participates in Observer
  * in two distinct roles: as an Observer, it receives notices from the Subject it is registered with
- * (parent or ControlDesk); as a Subject, it re-broadcasts notices to its own children, producing the
+ * (parent or ControlDesk), as a Subject, it rebroadcasts notices to its own children, producing the
  * cascading notification required across the event tree
  */
 class EventGroup : public EventComponent, public Subject

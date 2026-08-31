@@ -17,6 +17,9 @@
 
 using namespace std;
 
-MainHall::MainHall() : EventGroup("Main Hall") { }
+MainHall::MainHall() : EventGroup("Main Hall")
+{
+    
+}
 
 #endif // MAINHALL_CPP

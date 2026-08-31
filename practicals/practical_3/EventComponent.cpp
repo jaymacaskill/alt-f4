@@ -18,6 +18,9 @@
 
 using namespace std;
 
-EventComponent::~EventComponent() { }
+EventComponent::~EventComponent()
+{
+    //empty on purppose
+}
 
 #endif // EVENTCOMPONENT_CPP

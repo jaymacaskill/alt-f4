@@ -3,7 +3,7 @@
 // Jay Macaskill (25198387)
 
 // COS 214 (Software Modelling) Practical 3
-// Last Modified: 29 August 2026
+// Last Modified: 31 August 2026
 
 // DemoStation.cpp
 
@@ -18,7 +18,10 @@
 
 using namespace std;
 
-DemoStation::DemoStation(const string& name, int capacity) : EventUnit (name, capacity) { }
+DemoStation::DemoStation(const string& name, int capacity) : EventUnit (name, capacity)
+{
+	//inlinne, left open
+}
 
 void DemoStation::open()
 {
@@ -41,7 +44,8 @@ void DemoStation::update(Notice& notice)
 			break;
 
 		case CLOSE:
-			if (this->isOpen) this->close();
+			if (this->isOpen)
+				this->close();
 			break;
 
 		case POWER_ALERT:
@@ -75,7 +79,7 @@ void DemoStation::update(Notice& notice)
 
 		case LOST_PERSON:
 			if (this->isOpen)
-			cout << "Please keep an eye out for the missing individual while you enjoy your demonstrations.\n";
+				cout << "Please keep an eye out for the missing individual while you enjoy your demonstrations.\n";
 			break;
 
 		case VENDOR_CLOSE:

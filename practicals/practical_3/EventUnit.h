@@ -71,9 +71,9 @@ class EventUnit : public EventComponent
 		virtual void update(Notice& notice) = 0;
 
 	protected:
-		string name; /**< Display name of this unit */
-		int capacity; /**< Maximum capacity of this unit */
-		bool isFull = false; /**< Whether this unit is currently full */
+		string name; //Display name of this unit
+		int capacity; //Maximum capacity of this unit
+		bool isFull = false; //Whether this unit is currently full
 };
 
 #endif // EVENTUNIT_H

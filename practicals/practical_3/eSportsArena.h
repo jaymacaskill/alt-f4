@@ -3,7 +3,7 @@
 // Jay Macaskill (25198387)
 
 // COS 214 (Software Modelling) Practical 3
-// Last Modified: 30 August 2026
+// Last Modified: 31 August 2026
 
 // eSportsArena.h
 
@@ -51,7 +51,7 @@ class eSportsArena : public EventUnit
 		 */
 		void update(Notice& notice) override;
 
-	// ===== LIVE TOURNAMENT ==== //
+	//=====LIVE TOURNAMENT=====
 	//public:
 		/**
 		 * @brief Adds a player to the match
@@ -80,8 +80,8 @@ class eSportsArena : public EventUnit
 		void clearArena();
 
 	private:
-		vector<string> currentPlayers; /**< Vector of the current players */
-		string champion; /**< The champion currently */
+		vector<string> currentPlayers; //Vector of the current players
+		string champion; //The champion currently
 };
 
 #endif // ESPORTSARENA_H

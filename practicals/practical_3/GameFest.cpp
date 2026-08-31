@@ -17,6 +17,9 @@
 
 using namespace std;
 
-GameFest::GameFest() : EventGroup("Game Fest") { }
+GameFest::GameFest() : EventGroup("Game Fest")
+{
+    
+}
 
 #endif // GAMEFEST_CPP

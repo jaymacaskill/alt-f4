@@ -3,7 +3,7 @@
 // Jay Macaskill (25198387)
 
 // COS 214 (Software Modelling) Practical 3
-// Last Modified: 30 August 2026
+// Last Modified: 31 August 2026
 
 // eSportsArena.cpp
 
@@ -19,7 +19,10 @@
 
 using namespace std;
 
-eSportsArena::eSportsArena(const string& name, int capacity) : EventUnit(name, capacity) { }
+eSportsArena::eSportsArena(const string& name, int capacity) : EventUnit(name, capacity)
+{
+	//inline
+}
 
 void eSportsArena::open()
 {
@@ -173,8 +176,15 @@ string eSportsArena::runMatch()
 	return runMatch();
 }
 
-string eSportsArena::getWinner() const { return champion; }
+string eSportsArena::getWinner() const
+{
+	return champion;
+}
 
-void eSportsArena::clearArena() { currentPlayers.clear(); champion = ""; }
+void eSportsArena::clearArena()
+{
+	currentPlayers.clear();
+	champion = "";
+}
 
 #endif // ESPORTSARENA_CPP

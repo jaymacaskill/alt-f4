@@ -3,7 +3,7 @@
 // Jay Macaskill (25198387)
 
 // COS 214 (Software Modelling) Practical 3
-// Last Modified: 29 August 2026
+// Last Modified: 31 August 2026
 
 // ArcadeRow.cpp
 
@@ -18,7 +18,10 @@
 
 using namespace std;
 
-ArcadeRow::ArcadeRow(const string& name, int capacity) : EventUnit(name, capacity) { }
+ArcadeRow::ArcadeRow(const string& name, int capacity) : EventUnit(name, capacity)
+{
+	//left open, inline
+}
 
 void ArcadeRow::open()
 {
@@ -41,7 +44,8 @@ void ArcadeRow::update(Notice& notice)
 			break;
 
 		case CLOSE:
-			if (this->isOpen) this->close();
+			if (this->isOpen)
+				this->close();
 			break;
 
 		case EVACUATE:
