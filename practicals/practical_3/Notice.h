@@ -23,6 +23,7 @@ enum NoticeType
 	CLOSE, //An area or unit should close
 	POWER_ALERT, //A power-related safety concern
 	POWER_STABILISED, //An alert given to stabilise the power
+	CAPACITY_ALERT, //A unit or area has reached or exceeded its safe capacity threshold
 	EVACUATE, //The vicinity needs to be evacuated
 	SECURITY_ANNOUNCEMENT, //For any announcements brought forward by security e.g. parked car with windows down
 	LOST_PERSON, //To make stage announcement for any missing persons
