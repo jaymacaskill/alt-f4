@@ -110,6 +110,9 @@ void eSportsArena::update(Notice& notice)
 				networkAlert = false;
 			}
 			break;
+
+		case CAPACITY_ALERT:
+			break; //no capacity behaviour
 	}
 }
 

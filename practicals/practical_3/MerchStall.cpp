@@ -109,6 +109,9 @@ void MerchStall::update(Notice& notice)
 				networkAlert = false;
 			}
 			break;
+
+		case CAPACITY_ALERT:
+			break; //no capacity behaviour
 	}
 }
 #endif // MERCHSTALL_CPP

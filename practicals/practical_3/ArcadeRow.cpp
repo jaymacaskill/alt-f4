@@ -89,6 +89,9 @@ void ArcadeRow::update(Notice& notice)
 
 		case VENDOR_CLOSE:
 			break;
+
+		case CAPACITY_ALERT:
+			break; //no capacity behaviour
 	}
 }
 
