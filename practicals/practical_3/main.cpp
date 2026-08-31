@@ -18,8 +18,9 @@
 #include "TicketGate.h"
 #include "RetroCorner.h"
 #include "ArcadeRow.h"
-#include "PinballAlley.h"
 #include "ClassicGames.h"
+#include "PinballAlley.h"
+#include "CosplayCorner.h"
 
 #include "TournamentWing.h"
 #include "eSportsArena.h"
@@ -37,6 +38,8 @@
 
 #include <iostream>
 #include <vector>
+#include <cstdlib>
+#include <ctime>
 
 using namespace std;
 
@@ -79,6 +82,9 @@ void anonymous_example()
 
 int main()
 {
+    srand(time(nullptr)); // seed RNG once, before anything else (used by eSportsArena and CosplayCorner)
+
+    cout << "===== TEST FUNCTIONS =====\n";
     anonymous_example();
 
     // === CREATE EVENT (with small capacities) === //
@@ -86,7 +92,9 @@ int main()
     // --- Leaves (Level 4) ---
     TicketGate* ticket_gate = new TicketGate("Ticket Gate", 35);
     MainStage* main_stage = new MainStage("Main Stage", 25);
+    CosplayCorner* cosplay_corner = new CosplayCorner("Cosplay Corner", 20);
     ArcadeRow* arcade_row = new ArcadeRow("Arcade Row", 5);
+    PinballAlley* pinball_alley = new PinballAlley("Pinball Alley", 5);
 
     Queue* tournament_queue = new Queue("Tournament Queue", 30);
     eSportsArena* arena = new eSportsArena("eSportsArena", 10);
@@ -104,7 +112,7 @@ int main()
         retro_corner->add(arcade_row);
         retro_corner->add(pinball_alley);
 
-    // --- Sub-areas (Level 2) ---
+    // --- Sub-areas (Level 3) ---
     ClassicGames* classic_games = new ClassicGames;
         classic_games->add(retro_corner);
 
@@ -113,6 +121,7 @@ int main()
         main_hall->add(classic_games);
         main_hall->add(ticket_gate);
         main_hall->add(main_stage);
+        main_hall->add(cosplay_corner);
 
     TournamentWing* tournament_wing = new TournamentWing;
         tournament_wing->add(tournament_queue);
@@ -205,6 +214,23 @@ int main()
     main_stage->admit();
     arcade_row->admit();
     pinball_alley->admit();
+
+    cout << "\n👗 Meanwhile the Cosplay Corner's Best Dressed competition is filling up!" << endl;
+
+    cosplay_corner->open();
+    cosplay_corner->enterContestant("Aiden");
+    cosplay_corner->enterContestant("Priya");
+    cosplay_corner->enterContestant("Marko");
+    cosplay_corner->enterContestant("Zanele");
+    cosplay_corner->judgeContest();
+
+    cout << "🏆 And the winners are... 1st: " << cosplay_corner->getFirstPlace()
+        << ", 2nd: " << cosplay_corner->getSecondPlace()
+        << ", 3rd: " << cosplay_corner->getThirdPlace() << endl;
+
+    // testing checkCapacity() which is from SD3
+    cout << "\n📊 Checking whether the Main Hall is nearing capacity..." << endl;
+    main_hall->checkCapacity(3); // occupancy is 3 (2 at Main Stage, 1 at Arcade Row) then triggers CAPACITY_ALERT
 
     // ==== VENDOR HALL ==== //
 
