@@ -122,8 +122,24 @@ int EventGroup::getCapacity()
 
 void EventGroup::update(Notice& notice)
 {
-	// TODO - implement EventGroup::update
-	throw "Not yet implemented";
+	switch (notice.type)
+	{
+		case OPEN:
+			this->isOpen = true;
+			break;
+
+		case CLOSE:
+		//do nothing, event is closed
+		
+		case EVACUATE:
+			this->isOpen = false;
+			break;
+
+		default:
+			break;
+	}
+
+	this->notify(notice);
 }
 
 void EventGroup::transfer(EventGroup* new_parent, EventComponent* unit)
