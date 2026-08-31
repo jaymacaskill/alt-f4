@@ -15,6 +15,7 @@
 #include "EventComponent.h"
 #include "Notice.h"
 
+#include <algorithm>
 #include <iostream>
 #include <vector>
 
@@ -122,6 +123,7 @@ int EventGroup::getCapacity()
 
 void EventGroup::update(Notice& notice)
 {
+	// Track this group's own state
 	switch (notice.type)
 	{
 		case OPEN:
@@ -139,13 +141,27 @@ void EventGroup::update(Notice& notice)
 			break;
 	}
 
+	// If a child is an EventGroup, this recurses further down the tree
+	// if a child is an EventUnit leaf, its own update() gets called. this causes the cascading
 	this->notify(notice);
 }
 
 void EventGroup::transfer(EventGroup* new_parent, EventComponent* unit)
 {
-	// TODO - implement EventGroup::transfer
-	throw "Not yet implemented";
+	if (new_parent == nullptr || unit == nullptr)
+		return;
+
+	if (find(children.begin(), children.end(), unit) == children.end())
+	{
+		cout << unit->getName() << " is not owned by " << this->name << ". Transfer aborted.\n";
+		return;
+	}
+
+	this->remove(unit); // detaches `unit` as an observer of this group
+	new_parent->add(unit); // re attaches `unit` as an observer of its NEW owner, since it got transferred
+
+	cout << unit->getName() << " has been transferred from " << this->name
+	    << " to " << new_parent->getName() << ".\n"; //display a success message
 }
 
 EventGroup::~EventGroup()
