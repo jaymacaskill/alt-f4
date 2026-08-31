@@ -32,7 +32,7 @@ class MerchStall : public EventUnit
 		/**
 		 * @brief Shows whether the stall is doing cash only operations
 		 */
-		bool cashOnly = true;
+		bool cashOnly = false;
 
 		/**
 		 * @brief Constructs a merch stall object with fixed customer capacity

@@ -343,7 +343,8 @@ int main()
     
     while (tournament_queue->size() > 1)
     {
-        auto [p1, p2] = tournament_queue->getNextTwo();
+        pair<string, string> p = tournament_queue->getNextTwo();
+        string p1 = p.first, p2 = p.second;
         arena->addPlayer(p1);
         arena->addPlayer(p2);
         arena->runMatch();
